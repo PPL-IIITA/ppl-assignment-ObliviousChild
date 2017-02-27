@@ -58,7 +58,7 @@ $ java pplvalentine.InputCreator
 
 #### Documentation
 
-Documentation is available in ppl-assignment-ObliviousChild/PPLValentine/dist/javadoc
+Documentation is available in https://github.com/PPL-IIITA/ppl-assignment-ObliviousChild/tree/master/PPLValentine/dist/javadoc
 
 #### Class Diagrams
 
