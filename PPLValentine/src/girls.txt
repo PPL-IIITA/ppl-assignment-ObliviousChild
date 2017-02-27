@@ -1,0 +1,12 @@
+0 qwert 5 286 117 2
+1 werty 5 321 167 0
+2 ertyu 8 50 160 1
+0 rtyui 1 330 163 2
+1 tyuio 1 57 180 1
+2 yuiop 1 356 115 2
+0 uiopa 6 323 132 1
+1 iopas 8 474 118 2
+2 opasd 3 397 174 1
+0 pasdf 3 291 177 2
+1 asdfg 8 428 151 1
+2 sdfgh 1 108 115 2
