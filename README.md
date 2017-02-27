@@ -55,10 +55,18 @@ $ java pplvalentine.InputCreator
 * 12 girls
 * unique random string names
 * 4 of each type
+* maintenance cost between 50 to 450
+* iq between 100 to 200
+* attractiveness between 1 to 9
 
 ##### Boys.txt
 * 50 boys
 * unique random string names
+* budget between 50 to 450
+* iq between 100 to 200
+* attractiveness between 1 to 9
+* attractiveness required <= own attractiveness + 2
+
 
 #### Documentation
 
