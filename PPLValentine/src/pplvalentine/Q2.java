@@ -109,6 +109,11 @@ public class Q2
             k = 5;
         }
         //else k=5;
+        if (k>j) 
+        {
+            System.out.println("k is more than number of couples");
+            return;
+        }
         Arrays.sort(couples,0,j,coupleByHapp);
         
         System.out.println("\n"+k+" happiest couples are: \n");
