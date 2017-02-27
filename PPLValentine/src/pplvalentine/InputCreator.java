@@ -165,7 +165,7 @@ public class InputCreator
             t1 = j;                                     //type
             temp = randname.substring(i,i+5);
             t2 = r.nextInt(9)+1;                        //attr
-            t3 = r.nextInt(3)-1+t2;                     //attrreq
+            t3 = r.nextInt(t2+3)%10;                    //attrreq
             t4 = r.nextInt(450)+50;                     //budget
             t5 = r.nextInt(100)+100;                    //iq
             bw.write(t1+" "+temp+" "+t2+" "+t3+" "+t4+" "+t5);
