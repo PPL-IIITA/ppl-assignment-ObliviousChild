@@ -44,6 +44,11 @@ To randomly generate files again:
 ```
 $ java pplvalentine.InputCreator
 ```
+```
+$ cat gifts.txt
+$ cat girls.txt
+$ cat boys.txt
+```
 
 #### Details of randomly generated files:
 
