@@ -111,7 +111,7 @@ public class Q2
         //else k=5;
         Arrays.sort(couples,0,j,coupleByHapp);
         
-        System.out.println("\nk happiest couples are: \n");
+        System.out.println("\n"+k+" happiest couples are: \n");
         for (i=j-1; i>=j-k; i--)
         {
             c = couples[i];
@@ -120,7 +120,7 @@ public class Q2
         
         System.out.println();
         
-        System.out.println("k most compatible couples are: \n");
+        System.out.println(k+" most compatible couples are: \n");
         Arrays.sort(couples,0,j,coupleByComp);
         for (i=j-1; i>=j-k; i--)
         {
