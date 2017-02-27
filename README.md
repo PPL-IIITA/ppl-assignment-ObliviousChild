@@ -35,6 +35,10 @@ For Q2:
 $ java pplvalentine.Q2 <optional:value of k, default value is 5>
 ```
 
+View log:
+```
+$ cat log.txt
+```
 Randomly generated gifts, girls and boys are provided in gifts.txt, girls.txt and boys.txt.
 To randomly generate files again:
 ```
