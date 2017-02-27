@@ -24,6 +24,12 @@ Change to directory:
 ```
 $ cd ppl-assignment-ObliviousChild/PPLValentine/build/classes
 ```
+alternatively,
+```
+$ cd ppl-assignment-ObliviousChild/PPLValentine/src/pplvalentine
+$ javac *.java
+$ cd ..
+```
 
 For Q1:
 ```
