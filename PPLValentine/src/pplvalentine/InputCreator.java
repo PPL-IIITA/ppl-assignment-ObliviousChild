@@ -100,7 +100,7 @@ public class InputCreator
             t2= r.nextInt(20);
             //System.out.print("yyyyyyyyyyyyy\n");
             bw.write(t1+" "+t2);
-            System.out.println(t1+" "+t2);
+            //System.out.println(t1+" "+t2);
             bw.newLine();
         }
         for (int i=0; i<count; i++)
@@ -143,7 +143,7 @@ public class InputCreator
             t4 = r.nextInt(100)+100;            //iq
             t5 = r.nextInt(3);                  //choice of boyfriend
             temp2 = t1+" "+temp+" "+t2+" "+t3+" "+t4+" "+t5;
-            System.out.println(temp2);
+            //System.out.println(temp2);
             bw.write(temp2);
             bw.newLine();
         }
