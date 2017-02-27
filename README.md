@@ -66,4 +66,5 @@ https://github.com/PPL-IIITA/ppl-assignment-ObliviousChild/tree/master/PPLValent
 
 #### Class Diagrams
 
+https://github.com/PPL-IIITA/ppl-assignment-ObliviousChild/blob/master/PPLValentine/PPLValentineClassDiagram.pdf
 https://github.com/PPL-IIITA/ppl-assignment-ObliviousChild/blob/master/PPLValentine/PPLValentineClassDiagram.png
