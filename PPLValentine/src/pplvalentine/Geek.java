@@ -22,6 +22,7 @@ public class Geek extends Boy
     @Override
     double happiness()
     {
+        if (gf==null) return -1;
         happ = gf.iq;
         return happ;
     }

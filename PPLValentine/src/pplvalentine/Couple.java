@@ -31,8 +31,7 @@ public class Couple
     
     double getHapp()
     {
-        if (happiness==0)
-            setHapp();
+        setHapp();
         return happiness;
     }
     
@@ -46,5 +45,11 @@ public class Couple
         if (compatibility==0)
             setComp();
         return compatibility;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return gf.name+"  "+bf.name;
     }
 }

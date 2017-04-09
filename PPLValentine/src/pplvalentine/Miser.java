@@ -22,8 +22,8 @@ public class Miser extends Boy
     @Override
     double happiness()
     {
-        if (gf!=null)
-            happ = wallet;
+        if (gf==null) return -1;
+        happ = wallet;
         return happ;
     }
 

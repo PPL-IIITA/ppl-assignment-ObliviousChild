@@ -26,6 +26,7 @@ public class Desperate extends Girl
     @Override
     double happiness()
     {
+        if (bf==null) return -1;
         if (sumprice<maincost)
             return 0;
         int gift = gifts-maincost;
