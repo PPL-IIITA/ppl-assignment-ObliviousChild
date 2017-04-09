@@ -127,15 +127,15 @@ public class InputCreator
         fw = new FileWriter("girls.txt");
         bw = new BufferedWriter(fw);
         int count=12;
-        char type;
-        char types[] = {'c','n','d'};
+        //char type;
+        //char types[] = {'c','n','d'};
         int t1,t2,t3,t4,t5,i,j;
         String temp,temp2;
         String randname="QWERTYUIOPASDFGHJKLZXCVBNMQWER";
         for (i=0,j=0; i<count; i++, j++)
         {
             j=j%3;
-            type = types[j];                             //type
+            //type = types[j];                             //type
             temp = randname.substring(i,i+5);
             t2 = r.nextInt(9)+1;                //attr
             t3 = r.nextInt(450)+50;             //maintenance cost E [50,500]
