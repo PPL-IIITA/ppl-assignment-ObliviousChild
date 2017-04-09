@@ -9,35 +9,14 @@ package pplvalentine;
  *
  * @author Mac
  */
-public class Gift 
+public abstract class Gift 
 {
     final int price;
     final int value;
-    int luxrate=0;
-    int diff=0;
-    int utilvalue=0;
-    int utilclass=0;
-    
     Gift(int p, int v)
     {
         price=p;
         value=v;
-    }
-    
-    Gift(int p, int v, int l, int d)
-    {
-        price=p;
-        value=v;
-        luxrate=l;
-        diff=d;
-    }
-    
-    Gift(int p, int v, int uv, int uc, int utility)
-    {
-        price=p;
-        value=v;
-        utilvalue=uv;
-        utilclass=uc;
     }
     
     int getPrice()
@@ -50,9 +29,11 @@ public class Gift
         return value;
     }
     
-    @Override
+    abstract char getType();
+    
+    /*@Override
     public String toString()
     {
-        return ("Price "+price+" Value "+value+" Luxury Rating "+luxrate);
-    }
+    return ("Price "+price+" Value "+value+);
+    }*/
 }

@@ -94,16 +94,14 @@ public class InputCreator
         int count = 20;
         int t1,t2,t3,t4;
         
-        for (int i=0; i<count; i++)
+        for (int i=0; i<count; i++)                         //first 20 essential gifts
         {
             t1= i+1;
             t2= r.nextInt(20);
-            //System.out.print("yyyyyyyyyyyyy\n");
             bw.write(t1+" "+t2);
-            //System.out.println(t1+" "+t2);
             bw.newLine();
         }
-        for (int i=0; i<count; i++)
+        for (int i=0; i<count; i++)                         //next 20 luxury gifts
         {
             t1= i+1;
             t2= r.nextInt(20);
@@ -112,8 +110,7 @@ public class InputCreator
             bw.write(t1+" "+t2+" "+t3+" "+t4);
             bw.newLine();
         }
-        //System.out.print("yyyyyyyyyyyyy\n");
-        for (int i=0; i<count; i++)
+        for (int i=0; i<count; i++)                         //last 20 utility gifts
         {
             t1= i+1;
             t2= r.nextInt(20);
@@ -130,19 +127,21 @@ public class InputCreator
         fw = new FileWriter("girls.txt");
         bw = new BufferedWriter(fw);
         int count=12;
+        char type;
+        char types[] = {'c','n','d'};
         int t1,t2,t3,t4,t5,i,j;
         String temp,temp2;
         String randname="qwertyuiopasdfghjklzxcvbnmqwer";
         for (i=0,j=0; i<count; i++, j++)
         {
             j=j%3;
-            t1 = j;                             //type
+            type = types[j];                             //type
             temp = randname.substring(i,i+5);
             t2 = r.nextInt(9)+1;                //attr
             t3 = r.nextInt(450)+50;             //maintenance cost E [50,500]
             t4 = r.nextInt(100)+100;            //iq
             t5 = r.nextInt(3);                  //choice of boyfriend
-            temp2 = t1+" "+temp+" "+t2+" "+t3+" "+t4+" "+t5;
+            temp2 = type+" "+temp+" "+t2+" "+t3+" "+t4+" "+t5;
             //System.out.println(temp2);
             bw.write(temp2);
             bw.newLine();

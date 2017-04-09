@@ -9,7 +9,7 @@ package pplvalentine;
  *
  * @author Mac
  */
-public class Girl 
+public abstract class Girl 
 {
     String name;
     int attr;
@@ -17,14 +17,14 @@ public class Girl
     int iq;
     int gifts;
     int choice;
-    int type;
+    //int type;
     int sumprice;
     Boy bf;
     double happ;
     
-    Girl(int t, String n, int a, int c, int i, int ch)
+    Girl(String n, int a, int c, int i, int ch)
     {
-        type=t;
+        //type=t;
         name=n;
         attr=a;
         maincost=c;
@@ -33,47 +33,20 @@ public class Girl
         bf=null;
     }
     
-    void gift(Gift g)
-    {
-        sumprice+=g.price;
-        switch(type)
-        {
-            case 0:
-                gifts+=g.price;
-                if (g.luxrate!=0)
-                    gifts+=g.price;
-                break;
-            case 1:
-                gifts+=g.price + g.value;
-                break;
-            case 2:
-                gifts+=g.price;
-        }
-        
-    }
+    abstract void gift(Gift g);
     
-    double happiness()
+    abstract double happiness();
+    
+    abstract char getType();
+    
+    double getHappiness()
     {
-        if (sumprice<maincost)
-            return 0;
-        int gift = gifts-maincost;
-        switch (type)
-        {
-            case 0:
-                happ= Math.log(gift);
-                break;
-            case 1:
-                happ= gift;
-                break;
-            case 2:
-                happ= Math.pow(1.2,gift);
-        }
         return happ;
     }
     
-    Boy choose (Boy[] boys)                    // send appropriate sorted array, implement in main
+    Boy choose (Boy[] boys)                    
     {
-        int i;
+        int i;                                  // send appropriate sorted array, implement in main
         for (Boy b : boys)                     // ignore begin = index of first single boy
         {
             if (b.gf==null && maincost<=b.budget && attr>=b.attrreq)
@@ -90,6 +63,6 @@ public class Girl
     @Override
     public String toString()
     {
-        return ("Type "+type+" Name "+name+" Attractiveness "+attr+" Maintenance Cost "+maincost+" Intelligence "+iq+" Choice "+choice);
+        return (" Name "+name+" Attractiveness "+attr+" Maintenance Cost "+maincost+" Intelligence "+iq+" Choice "+choice);
     }
 }

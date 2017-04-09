@@ -40,9 +40,9 @@ public class Q1
         int i,j=0;
         Girl g=null;
         Couple c=null;
-        Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getAttr);
-        Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getBudget);
-        Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getIq);
+        Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
+        Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
+        Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
         
         Arrays.sort(boys_attr,compareByAttr);
         Arrays.sort(boys_rich,compareByBudget);
@@ -57,7 +57,7 @@ public class Q1
         for (i=0; i<12; i++)
         {
             g = girls[i];
-            switch(g.type)
+            switch(g.choice)
             {
                 case 0:
                     b = g.choose(boys_attr);
