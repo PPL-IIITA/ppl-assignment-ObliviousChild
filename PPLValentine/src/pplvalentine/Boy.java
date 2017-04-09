@@ -16,16 +16,17 @@ import java.sql.Timestamp;
 public abstract class Boy 
 {    
     String name;
-    int attr;
+    final int attr;
     int budget;
-    int iq;
+    final int iq;
     //int type;
     Girl gf;
-    int attrreq;
+    Girl exgf;
+    final int attrreq;
     int wallet;
     double happ;
     int e,l,u;
-    private int originalBudget;
+    private final int originalBudget;
     
     Boy (String n, int a, int r, int b, int i)
     {
@@ -64,8 +65,16 @@ public abstract class Boy
         
     abstract double happiness ();
     
+    void breakup()
+    {
+        exgf = gf;
+        gf = null;
+        happ = 0;
+    }
     Girl choose (Girl girls[])
     {
+        if (gf!=null)
+            return null;
         for (Girl g: girls)                 //pass sorted array
         {
             if (g.bf==null && budget>=g.maincost && g.attr>=attrreq)

@@ -12,14 +12,15 @@ package pplvalentine;
 public abstract class Girl 
 {
     String name;
-    int attr;
-    int maincost;
-    int iq;
+    final int attr;
+    final int maincost;
+    final int iq;
     int gifts;
-    int choice;
+    final int choice;
     //int type;
     int sumprice;
     Boy bf;
+    Boy exbf;
     double happ;
     
     Girl(String n, int a, int c, int i, int ch)
@@ -44,18 +45,41 @@ public abstract class Girl
         return happ;
     }
     
+    int getNegAttr()
+    {
+        return -attr;
+    }
+    
+    int getMcost()
+    {
+        return maincost;
+    }
+    
+    void breakup()
+    {
+        exbf = bf;
+        bf = null;
+        happ = 0;
+        sumprice = 0;
+        gifts = 0;
+    }
+    
     Boy choose (Boy[] boys)                    
     {
+        if (bf!=null)
+            return null;
         int i;                                  // send appropriate sorted array, implement in main
         for (Boy b : boys)                     // ignore begin = index of first single boy
         {
-            if (b.gf==null && maincost<=b.budget && attr>=b.attrreq)
+            if (b.gf==null && maincost<=b.budget && attr>=b.attrreq && b!=exbf)
             {
                 b.gf = this;
                 //System.out.println(b.gf);
                 bf = b;
                 break;
             }
+            //if (b.name.equals("defgh"))
+              //  System.out.println("I am stupid I rejected this guy budget = "+b.budget)
         }
         return bf;
     }
