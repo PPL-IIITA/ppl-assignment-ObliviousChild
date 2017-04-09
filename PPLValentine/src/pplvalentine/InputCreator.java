@@ -131,7 +131,7 @@ public class InputCreator
         char types[] = {'c','n','d'};
         int t1,t2,t3,t4,t5,i,j;
         String temp,temp2;
-        String randname="qwertyuiopasdfghjklzxcvbnmqwer";
+        String randname="QWERTYUIOPASDFGHJKLZXCVBNMQWER";
         for (i=0,j=0; i<count; i++, j++)
         {
             j=j%3;
@@ -141,7 +141,7 @@ public class InputCreator
             t3 = r.nextInt(450)+50;             //maintenance cost E [50,500]
             t4 = r.nextInt(100)+100;            //iq
             t5 = r.nextInt(3);                  //choice of boyfriend
-            temp2 = type+" "+temp+" "+t2+" "+t3+" "+t4+" "+t5;
+            temp2 = j+" "+temp+" "+t2+" "+t3+" "+t4+" "+t5;
             //System.out.println(temp2);
             bw.write(temp2);
             bw.newLine();
