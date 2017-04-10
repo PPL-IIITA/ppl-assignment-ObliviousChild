@@ -10,27 +10,27 @@ $ cd ..
 ```
 For Q3:
 ```
-$ java pplvalentine.Q3
+$ java pplvalentine.Q3 <optional: value of k;defaults to 5>
 ```
 
 For Q4:
 ```
-$ java pplvalentine.Q4
+$ java pplvalentine.Q4 <optional: value of k;defaults to 5>
 ```
 
 For Q5:
 ```
-$ java pplvalentine.Q5
+$ java pplvalentine.Q5 <optional: enter 1 for old method>
 ```
 
-For Q6:
+For Q6: (takes t = 10)
 ```
-$ java pplvalentine.Q6
+$ java pplvalentine.Q6 
 ```
 
-For Q7:
+For Q7: (takes random value if unspecified)
 ```
-$ java pplvalentine.Q7
+$ java pplvalentine.Q7 <optional: 0 for array, 1 for sortedarray, 2 for hashtable>
 ```
 
 For Q8:
