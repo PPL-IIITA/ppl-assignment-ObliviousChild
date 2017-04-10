@@ -39,8 +39,7 @@ $ java pplvalentine.Q8
 ```
 
 
-For Q9:
-
+For Q9: (takes k as 5)
 ```
 $ cd ppl-assignment-ObliviousChild/Q9/src/q9
 $ javac *.java
