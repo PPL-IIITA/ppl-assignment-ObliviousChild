@@ -17,7 +17,7 @@ import java.util.Comparator;
  *
  * @author Megha
  */
-public class Q2 
+public class Q3
 {
     static Boy boys_attr[];
     static Boy boys_rich[];
