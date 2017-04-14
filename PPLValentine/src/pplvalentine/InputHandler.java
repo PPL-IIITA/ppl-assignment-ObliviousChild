@@ -31,7 +31,7 @@ public class InputHandler
             {
                 t1=sc.nextInt();
                 t2=sc.nextInt();
-                gifts[i] = new Essential(t1,t2,0,0,0,0,'e');
+                gifts[i] = new Gift(t1,t2,0,0,0,0,'e');
             }
             for (i=20; i<40; i++)
             {
@@ -39,7 +39,7 @@ public class InputHandler
                 t2=sc.nextInt();
                 t3=sc.nextInt();
                 t4=sc.nextInt();
-                gifts[i] = new Luxury(t1,t2,t3,t4,0,0,'l');
+                gifts[i] = new Gift(t1,t2,t3,t4,0,0,'l');
             }
             for (i=40; i<60; i++)
             {
@@ -47,7 +47,7 @@ public class InputHandler
                 t2=sc.nextInt();
                 t3=sc.nextInt();
                 t4=sc.nextInt();
-                gifts[i] = new Utility(t1,t2,0,0,t3,t4,'u');
+                gifts[i] = new Gift(t1,t2,0,0,t3,t4,'u');
             }
             return gifts;
         }
