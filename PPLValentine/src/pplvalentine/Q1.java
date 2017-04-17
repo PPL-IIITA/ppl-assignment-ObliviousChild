@@ -48,10 +48,6 @@ public class Q1
         Arrays.sort(boys_rich,compareByBudget);
         Arrays.sort(boys_iq,compareByIq);
         
-        //Arrays.sort(myTypes, (a,b) -> a.name.compareTo(b.name));
-        //Comparator<String> = Comparator.comparing(String::length);
-        //Comparator<Integer> byString = Comparator.comparing(String::valueOf);
-        
         FileWriter fw = new FileWriter("log.txt");
         BufferedWriter bw = new BufferedWriter(fw);
         for (i=0; i<12; i++)

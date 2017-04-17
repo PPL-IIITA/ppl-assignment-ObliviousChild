@@ -28,7 +28,7 @@ public class Miser extends Boy
     }
 
     @Override
-    void gift(Gift[] gifts, BufferedWriter bw) throws IOException 
+    void gift(Gift[] gifts)
     {
         if (gf==null)                   // gifts sorted by price, 60 gifts
             return;
@@ -60,10 +60,10 @@ public class Miser extends Boy
         {
             budget-=wallet;
             wallet=0;
-            log(bw);
+            log();
             return;
         }
         //job done for miser
-        log(bw);
+        log();
     }
 }

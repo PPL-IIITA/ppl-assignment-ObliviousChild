@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package pplvalentine;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
-
 /**
  *
  * @author Megha
@@ -61,7 +56,7 @@ public abstract class Boy
     {
         return originalBudget;
     }
-    abstract void gift (Gift gifts[], BufferedWriter bw) throws IOException;
+    abstract void gift (Gift gifts[]);
         
     abstract double happiness ();
     
@@ -87,11 +82,9 @@ public abstract class Boy
         return gf;
     }
     
-    void log(BufferedWriter bw) throws IOException
+    void log()
     {
-            Timestamp TS = new Timestamp(System.currentTimeMillis());
-            bw.write(TS+" "+name+" gifted "+gf.name+" gifts of total cost "+(budget-wallet)+" essential: "+e+" luxury: "+l+" utility: "+u);
-            bw.newLine();
+            Logger.gifting(name, gf.name, budget-wallet, l, e, u);
     }
     
     @Override

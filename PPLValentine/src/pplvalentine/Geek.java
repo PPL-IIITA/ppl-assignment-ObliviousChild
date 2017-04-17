@@ -5,9 +5,6 @@
  */
 package pplvalentine;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-
 /**
  *
  * @author Megha
@@ -28,7 +25,7 @@ public class Geek extends Boy
     }
 
     @Override
-    void gift(Gift[] gifts, BufferedWriter bw) throws IOException 
+    void gift(Gift[] gifts)
     {
         if (gf==null)                   // gifts sorted by price, 60 gifts
             return;
@@ -60,7 +57,7 @@ public class Geek extends Boy
         {
             budget-=wallet;
             wallet=0;
-            log(bw);
+            log();
             return;
         }
         
@@ -79,6 +76,6 @@ public class Geek extends Boy
         }
         
         //Gifting complete. logging.
-        log(bw);
+        log();
     }
 }
