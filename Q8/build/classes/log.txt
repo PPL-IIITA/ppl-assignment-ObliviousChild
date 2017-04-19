@@ -1,0 +1,97 @@
+2017-04-19 08:27:46.32 :COMMITMENT	 QWERT and dfghj
+2017-04-19 08:27:46.326 :COMMITMENT	 WERTY and jklmn
+2017-04-19 08:27:46.326 :COMMITMENT	 ERTYU and zxvbn
+2017-04-19 08:27:46.326 :COMMITMENT	 RTYUI and abcde
+2017-04-19 08:27:46.326 :COMMITMENT	 TYUIO and wxyzq
+2017-04-19 08:27:46.326 :COMMITMENT	 YUIOP and stuvw
+2017-04-19 08:27:46.326 :COMMITMENT	 UIOPA and fghij
+2017-04-19 08:27:46.327 :COMMITMENT	 IOPAS and tuvwx
+2017-04-19 08:27:46.327 :COMMITMENT	 OPASD and lzxvb
+2017-04-19 08:27:46.327 :COMMITMENT	 PASDF and bcdef
+2017-04-19 08:27:46.328 :EXCEPTION	 pplvalentine.BfNotFound: 404 Bf not found for ASDFG
+2017-04-19 08:27:46.328 :COMMITMENT	 SDFGH and vwxyz
+2017-04-19 08:27:46.329 :EXCEPTION	 pplvalentine.NoArgumentSupplied: No argument supplied for k  Defaulting k = 5
+2017-04-19 08:27:46.33 :GIFTING	 QWERT gifted dfghj gifts of total price 210. Essential: 12, Luxury: 12, Utility: 11
+2017-04-19 08:27:46.331 :GIFTING	 WERTY gifted jklmn gifts of total price 360. Essential: 15, Luxury: 15, Utility: 15
+2017-04-19 08:27:46.331 :GIFTING	 ERTYU gifted zxvbn gifts of total price 234. Essential: 12, Luxury: 12, Utility: 12
+2017-04-19 08:27:46.331 :GIFTING	 RTYUI gifted abcde gifts of total price 360. Essential: 15, Luxury: 15, Utility: 15
+2017-04-19 08:27:46.331 :GIFTING	 TYUIO gifted wxyzq gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.331 :GIFTING	 YUIOP gifted stuvw gifts of total price 92. Essential: 8, Luxury: 7, Utility: 7
+2017-04-19 08:27:46.331 :GIFTING	 UIOPA gifted fghij gifts of total price 165. Essential: 10, Luxury: 11, Utility: 10
+2017-04-19 08:27:46.331 :GIFTING	 IOPAS gifted tuvwx gifts of total price 273. Essential: 13, Luxury: 13, Utility: 13
+2017-04-19 08:27:46.331 :GIFTING	 OPASD gifted lzxvb gifts of total price 330. Essential: 15, Luxury: 15, Utility: 14
+2017-04-19 08:27:46.331 :GIFTING	 PASDF gifted bcdef gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.331 :GIFTING	 SDFGH gifted vwxyz gifts of total price 155. Essential: 10, Luxury: 10, Utility: 9
+2017-04-19 08:27:46.332 :EXCEPTION	 pplvalentine.NoArgumentSupplied: No argument supplied for t (frequency of gifting)   Defaulting t (frequency of gifting)  = 10
+2017-04-19 08:27:46.335 :BREAKUP	 IOPAS and tuvwx
+2017-04-19 08:27:46.335 :BREAKUP	 RTYUI and abcde
+2017-04-19 08:27:46.335 :BREAKUP	 PASDF and bcdef
+2017-04-19 08:27:46.335 :BREAKUP	 SDFGH and vwxyz
+2017-04-19 08:27:46.336 :BREAKUP	 QWERT and dfghj
+2017-04-19 08:27:46.336 :COMMITMENT	 IOPAS and abcde
+2017-04-19 08:27:46.336 :COMMITMENT	 RTYUI and werty
+2017-04-19 08:27:46.336 :COMMITMENT	 PASDF and dfghj
+2017-04-19 08:27:46.336 :COMMITMENT	 SDFGH and bnmqw
+2017-04-19 08:27:46.336 :COMMITMENT	 QWERT and bcdef
+2017-04-19 08:27:46.336 :GIFTING	 IOPAS gifted abcde gifts of total price 287. Essential: 14, Luxury: 13, Utility: 13
+2017-04-19 08:27:46.336 :GIFTING	 RTYUI gifted werty gifts of total price 360. Essential: 15, Luxury: 15, Utility: 15
+2017-04-19 08:27:46.337 :GIFTING	 PASDF gifted dfghj gifts of total price 392. Essential: 16, Luxury: 17, Utility: 15
+2017-04-19 08:27:46.337 :GIFTING	 SDFGH gifted bnmqw gifts of total price 155. Essential: 10, Luxury: 10, Utility: 9
+2017-04-19 08:27:46.337 :GIFTING	 QWERT gifted bcdef gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.337 :GIFTING	 UIOPA gifted fghij gifts of total price 165. Essential: 10, Luxury: 11, Utility: 10
+2017-04-19 08:27:46.337 :GIFTING	 OPASD gifted lzxvb gifts of total price 330. Essential: 15, Luxury: 15, Utility: 14
+2017-04-19 08:27:46.337 :GIFTING	 ERTYU gifted zxvbn gifts of total price 234. Essential: 12, Luxury: 12, Utility: 12
+2017-04-19 08:27:46.337 :GIFTING	 YUIOP gifted stuvw gifts of total price 92. Essential: 8, Luxury: 7, Utility: 7
+2017-04-19 08:27:46.337 :GIFTING	 WERTY gifted jklmn gifts of total price 360. Essential: 15, Luxury: 15, Utility: 15
+2017-04-19 08:27:46.337 :GIFTING	 TYUIO gifted wxyzq gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.339 :BREAKUP	 QWERT and bcdef
+2017-04-19 08:27:46.339 :BREAKUP	 RTYUI and werty
+2017-04-19 08:27:46.339 :BREAKUP	 SDFGH and bnmqw
+2017-04-19 08:27:46.34 :BREAKUP	 UIOPA and fghij
+2017-04-19 08:27:46.34 :BREAKUP	 PASDF and dfghj
+2017-04-19 08:27:46.34 :COMMITMENT	 QWERT and dfghj
+2017-04-19 08:27:46.34 :COMMITMENT	 RTYUI and hijkl
+2017-04-19 08:27:46.341 :COMMITMENT	 SDFGH and vwxyz
+2017-04-19 08:27:46.341 :COMMITMENT	 UIOPA and tyuio
+2017-04-19 08:27:46.341 :COMMITMENT	 PASDF and bcdef
+2017-04-19 08:27:46.341 :GIFTING	 QWERT gifted dfghj gifts of total price 210. Essential: 12, Luxury: 12, Utility: 11
+2017-04-19 08:27:46.341 :GIFTING	 RTYUI gifted hijkl gifts of total price 442. Essential: 17, Luxury: 17, Utility: 16
+2017-04-19 08:27:46.341 :GIFTING	 SDFGH gifted vwxyz gifts of total price 155. Essential: 10, Luxury: 10, Utility: 9
+2017-04-19 08:27:46.342 :GIFTING	 UIOPA gifted tyuio gifts of total price 165. Essential: 10, Luxury: 10, Utility: 10
+2017-04-19 08:27:46.342 :GIFTING	 PASDF gifted bcdef gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.342 :GIFTING	 IOPAS gifted abcde gifts of total price 287. Essential: 14, Luxury: 13, Utility: 13
+2017-04-19 08:27:46.342 :GIFTING	 WERTY gifted jklmn gifts of total price 360. Essential: 15, Luxury: 15, Utility: 15
+2017-04-19 08:27:46.342 :GIFTING	 TYUIO gifted wxyzq gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.342 :GIFTING	 YUIOP gifted stuvw gifts of total price 92. Essential: 8, Luxury: 7, Utility: 7
+2017-04-19 08:27:46.342 :GIFTING	 ERTYU gifted zxvbn gifts of total price 234. Essential: 12, Luxury: 12, Utility: 12
+2017-04-19 08:27:46.342 :GIFTING	 OPASD gifted lzxvb gifts of total price 330. Essential: 15, Luxury: 15, Utility: 14
+2017-04-19 08:27:46.342 :BREAKUP	 RTYUI and hijkl
+2017-04-19 08:27:46.343 :BREAKUP	 PASDF and bcdef
+2017-04-19 08:27:46.343 :BREAKUP	 SDFGH and vwxyz
+2017-04-19 08:27:46.343 :BREAKUP	 UIOPA and tyuio
+2017-04-19 08:27:46.343 :BREAKUP	 QWERT and dfghj
+2017-04-19 08:27:46.343 :COMMITMENT	 RTYUI and werty
+2017-04-19 08:27:46.343 :COMMITMENT	 PASDF and dfghj
+2017-04-19 08:27:46.344 :COMMITMENT	 SDFGH and bnmqw
+2017-04-19 08:27:46.344 :COMMITMENT	 UIOPA and fghij
+2017-04-19 08:27:46.344 :COMMITMENT	 QWERT and bcdef
+2017-04-19 08:27:46.344 :GIFTING	 RTYUI gifted werty gifts of total price 360. Essential: 15, Luxury: 15, Utility: 15
+2017-04-19 08:27:46.344 :GIFTING	 PASDF gifted dfghj gifts of total price 392. Essential: 16, Luxury: 17, Utility: 15
+2017-04-19 08:27:46.344 :GIFTING	 SDFGH gifted bnmqw gifts of total price 155. Essential: 10, Luxury: 10, Utility: 9
+2017-04-19 08:27:46.344 :GIFTING	 UIOPA gifted fghij gifts of total price 165. Essential: 10, Luxury: 11, Utility: 10
+2017-04-19 08:27:46.344 :GIFTING	 QWERT gifted bcdef gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.344 :GIFTING	 IOPAS gifted abcde gifts of total price 287. Essential: 14, Luxury: 13, Utility: 13
+2017-04-19 08:27:46.344 :GIFTING	 WERTY gifted jklmn gifts of total price 360. Essential: 15, Luxury: 15, Utility: 15
+2017-04-19 08:27:46.345 :GIFTING	 TYUIO gifted wxyzq gifts of total price 477. Essential: 18, Luxury: 17, Utility: 17
+2017-04-19 08:27:46.345 :GIFTING	 YUIOP gifted stuvw gifts of total price 92. Essential: 8, Luxury: 7, Utility: 7
+2017-04-19 08:27:46.345 :GIFTING	 ERTYU gifted zxvbn gifts of total price 234. Essential: 12, Luxury: 12, Utility: 12
+2017-04-19 08:27:46.345 :GIFTING	 OPASD gifted lzxvb gifts of total price 330. Essential: 15, Luxury: 15, Utility: 14
+2017-04-19 08:27:46.345 :BREAKUP	 QWERT and bcdef
+2017-04-19 08:27:46.345 :BREAKUP	 RTYUI and werty
+2017-04-19 08:27:46.346 :BREAKUP	 SDFGH and bnmqw
+2017-04-19 08:27:46.346 :BREAKUP	 UIOPA and fghij
+2017-04-19 08:27:46.346 :BREAKUP	 PASDF and dfghj
+2017-04-19 08:27:46.346 :COMMITMENT	 QWERT and dfghj
+2017-04-19 08:27:46.347 :COMMITMENT	 RTYUI and hijkl
+2017-04-19 08:27:46.347 :COMMITMENT	 SDFGH and vwxyz
+2017-04-19 08:27:46.347 :COM
