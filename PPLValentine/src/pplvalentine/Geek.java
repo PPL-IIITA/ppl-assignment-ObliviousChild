@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package pplvalentine;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
-
 /**
  *
  * @author Megha
@@ -28,7 +24,7 @@ public class Geek extends Boy
     }
 
     @Override
-    void gift(Gift[] gifts, BufferedWriter bw) throws IOException 
+    void gift(Gift[] gifts)
     {
         if (gf==null)                   // gifts sorted by price, 60 gifts
             return;
@@ -55,12 +51,13 @@ public class Geek extends Boy
             }
         }
         
+        giftsCheckedUptoIndex = i;
         //wallet might go into negative. If so, it means that budget needs to be updated and gifting process is complete. Proceed to logging.
         if (wallet<=0)
         {
             budget-=wallet;
             wallet=0;
-            log(bw);
+            log();
             return;
         }
         
@@ -79,6 +76,6 @@ public class Geek extends Boy
         }
         
         //Gifting complete. logging.
-        log(bw);
+        log();
     }
 }

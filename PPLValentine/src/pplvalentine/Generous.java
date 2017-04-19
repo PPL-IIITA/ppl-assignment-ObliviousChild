@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package pplvalentine;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
-
 /**
  *
  * @author Megha
@@ -28,7 +24,7 @@ public class Generous extends Boy
     }
 
     @Override
-    void gift(Gift[] gifts, BufferedWriter bw) throws IOException 
+    void gift(Gift[] gifts)
     {
         if (gf==null)                   // gifts sorted by price, 60 gifts
             return;
@@ -58,11 +54,12 @@ public class Generous extends Boy
             {
                 budget-=wallet;
                 wallet=0;
-                log(bw);
+                giftsCheckedUptoIndex = i+1;
+                log();
                 return;
             }
         }
-        
-        log(bw);
+        giftsCheckedUptoIndex = i;
+        log();
     }
 }

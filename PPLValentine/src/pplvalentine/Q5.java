@@ -5,11 +5,7 @@
  */
 package pplvalentine;
 
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -27,50 +23,34 @@ public class Q5
     static Gift gifts[];
     static Couple couples[] = new Couple[12];
     
-    public static void main(String[] args) throws FileNotFoundException, IOException
+    public static void main(String[] args)
     {
-        // TODO code application logic here
-        //Q3.main(args);
         if (args.length>0 && args[0].equals("1"))
+        {
             Q1.main(args);
-            
-        InputHandler input = new InputHandler();
-        boys_attr = input.boycreator();                 //by attr
-        boys_rich = boys_attr.clone();                 //by budget
-        boys_iq = boys_attr.clone();                 //by iq
-        girls_mcost = input.girlcreator();
-        girls_attr = girls_mcost.clone();
-        gifts = input.giftcreator();
-        Boy b=null;
-        int i,j=0;
-        Girl g=null;
-        Couple c=null;
-        Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
-        Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
-        Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
-        Comparator<Girl> compareGirlByAttr= Comparator.comparingInt(Girl::getNegAttr);
-        Comparator<Girl> compareGirlByMcost= Comparator.comparingInt(Girl::getMcost);
+            return;
+        }
+        handleInput();
+        formCouples();
+    }
+    
+    /**
+     * forms couples by allowing girls and boys to choose alternately. girls are ordered by maintenance cost, and boys by attractiveness
+     */
+    static void formCouples()
+    {
+        int i, j=0;
+        Girl g = null;
+        Boy b = null;
         
-        Arrays.sort(boys_attr,compareByAttr);
-        Arrays.sort(boys_rich,compareByBudget);
-        Arrays.sort(boys_iq,compareByIq);
-        Arrays.sort(girls_mcost,compareGirlByMcost);
-        Arrays.sort(girls_attr,compareGirlByAttr);
-        
-        //Arrays.sort(myTypes, (a,b) -> a.name.compareTo(b.name));
-        //Comparator<String> = Comparator.comparing(String::length);
-        //Comparator<Integer> byString = Comparator.comparing(String::valueOf);
-        
-        FileWriter fw = new FileWriter("log.txt");
-        BufferedWriter bw = new BufferedWriter(fw);
         for (i=0; i<50; i++)
         {
             if (i<12)
             {
             g = girls_mcost[i];
-            if (g.bf!=null)
-                    System.out.println(g.name+" is already taken");
-            else{ switch(g.choice)
+            if (g.bf!=null);
+            else
+            { switch(g.choice)
             {
                 case 0:
                     b = g.choose(boys_attr);
@@ -85,42 +65,83 @@ public class Q5
             if (b!=null)
             {
                 System.out.println(g.name+" got committed to "+b.name);
-                Timestamp TS = new Timestamp(System.currentTimeMillis());
-                bw.write(TS+" "+g.name+" got committed to "+b.name);
+                Logger.commit(g.name,b.name);
                 couples[j++] = new Couple(g,b);
             }
             else
             {
-                System.out.println(g.name+ " did not find anyone");
-                //bw.write("girl index " +i+ " did not find anyone");
+                try
+                {
+                throw new BfNotFound(g.name);
+                }
+                catch (BfNotFound ex)
+                {
+                    Exceptions.catcher(ex);
+                }
             }
-            bw.newLine();
             }}
             if (j==12)  break;
             b = boys_attr[i];
             if (b.gf!=null)
-            {
-                System.out.println(b.name+" is already taken");
                 continue;
-            }
             g = b.choose(girls_attr);
             if (g!=null)
             {
                 System.out.println(b.name+" got committed to "+g.name);
-                Timestamp TS = new Timestamp(System.currentTimeMillis());
-                bw.write(TS+" "+b.name+" got committed to "+g.name);
-                bw.newLine();
+                Logger.commit(b.name,g.name);
                 couples[j++] = new Couple(g,b);
             }
             else
             {
-                System.out.println(b.name+ " did not find anyone");
-                //bw.write(+ " did not find anyone");
+                try
+                {
+                throw new GfNotFound(b.name);
+                }
+                catch (GfNotFound ex)
+                {
+                    Exceptions.catcher(ex);
+                }
             }
             if (j==12)  break;
         }
-        if (bw != null)bw.close();
-        if (fw != null)fw.close();
     }
+    
+    /**
+     * creates initial data structures for pre generated random girls, boys and gifts
+     */
+    private static void handleInput() 
+    {
+        InputHandler input = new InputHandler();
+        try 
+        {
+            boys_attr = input.boycreator();                 //by attr
+            boys_rich = boys_attr.clone();                 //by budget
+            boys_iq = boys_attr.clone();                 //by iq
+            girls_mcost = input.girlcreator();
+            girls_attr = girls_mcost.clone();
+            gifts = input.giftcreator();
+            Boy b=null;
+            int i,j=0;
+            Girl g=null;
+            Couple c=null;
+            Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
+            Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
+            Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
+            Comparator<Girl> compareGirlByAttr= Comparator.comparingInt(Girl::getNegAttr);
+            Comparator<Girl> compareGirlByMcost= Comparator.comparingInt(Girl::getMcost);
+
+            Arrays.sort(boys_attr,compareByAttr);
+            Arrays.sort(boys_rich,compareByBudget);
+            Arrays.sort(boys_iq,compareByIq);
+            Arrays.sort(girls_mcost,compareGirlByMcost);
+            Arrays.sort(girls_attr,compareGirlByAttr);
+            Logger.configure();
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            System.out.println("Input File not found.");
+        }
+    }
+    
 }    
     

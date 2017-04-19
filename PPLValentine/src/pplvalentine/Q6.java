@@ -5,175 +5,79 @@
  */
 package pplvalentine;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Arrays;
-import java.util.Comparator;
-
 /**
  *
  * @author Megha
  */
-public class Q6
+public class Q6 
 {
-    static Boy boys_attr[];
-    static Boy boys_rich[];
-    static Boy boys_iq[];
-    static Girl girls[];
-    static Gift gifts[];
-    static Couple couples[] = new Couple[12];
+    static int t;
+    static int k;
     
-    public static void main(String[] args) throws FileNotFoundException, IOException
+    /**
+     * uses methods of question 4 to perform gifting and breakups 't' number of times
+     * @param args 
+     */
+    public static void main(String args[])
     {
-        // TODO code application logic here
+        Q4.handleInput();
+        Q4.allotBfs();
+        setk(args);
+        Q4.performGifting();
         
-        InputHandler input = new InputHandler();
-        boys_attr = input.boycreator();             // to be sorted by attr
-        boys_rich = boys_attr.clone();              // to be sorted by budget
-        boys_iq = boys_attr.clone();                // to be sorted by iq
-        girls = input.girlcreator();
-        gifts = input.giftcreator();
-        Boy b=null;
-        int i,j=0;
-        int numcouples;
-        Girl g=null;
-        Couple c=null;
-        Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
-        Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
-        Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
+        setT(args);
         
-        Arrays.sort(boys_attr,compareByAttr);
-        Arrays.sort(boys_rich,compareByBudget);
-        Arrays.sort(boys_iq,compareByIq);
-        
-        //Arrays.sort(myTypes, (a,b) -> a.name.compareTo(b.name));
-        //Comparator<String> = Comparator.comparing(String::length);
-        //Comparator<Integer> byString = Comparator.comparing(String::valueOf);
-        
-        FileWriter fw = new FileWriter("log.txt");
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (i=0; i<12; i++)
+        for (int i=0; i<t; i++)
         {
-            g = girls[i];
-            switch(g.choice)
-            {
-                case 0:
-                    b = g.choose(boys_attr);
-                    break;
-                case 1:
-                    b = g.choose(boys_rich);
-                    break;
-                case 2:
-                    b = g.choose(boys_iq);
-                    break;
-            }
-            if (b!=null)
-            {
-                System.out.println(g.name+" got committed to "+b.name);
-                Timestamp TS = new Timestamp(System.currentTimeMillis());
-                bw.write(TS+" "+g.name+" got committed to "+b.name);
-                couples[j++] = new Couple(g,b);
-            }
-            else
-            {
-                System.out.println("girl index " +i+ " did not find anyone");
-                bw.write("girl index " +i+ " did not find anyone");
-            }
-            bw.newLine();
+            Q4.breakup(k);
+            Q4.performGifting();
         }
-        
-        Comparator<Gift> giftByPrice = Comparator.comparingInt(Gift::getPrice);
-        Arrays.sort(gifts,giftByPrice);
-        numcouples = j;
-        
-        Comparator<Couple> coupleByHapp = Comparator.comparingDouble(Couple::getHapp);
-        //Comparator<Couple> coupleByComp = Comparator.comparingInt(Couple::getComp);
-        
-        int k;
-        //if (args[0]!=null)
+    }
+    
+    /**
+     * sets k (k happiest couples) as inputted, or 5 otherwise
+     * @param args command line input
+     */
+    public static void setk(String args[])
+    {
         try
         {
-            k = Integer.parseInt(args[0]);
+            k = Integer.parseInt(args[1]);
         }
-        catch (ArrayIndexOutOfBoundsException e)
+        catch (ArrayIndexOutOfBoundsException ex)
         {
-            k = 5;
-        }
-        //else k=5;
-        if (k>j) 
-        {
-            System.out.println("k is more than number of couples");
-            return;
-        }
-        Arrays.sort(couples,0,j,coupleByHapp);
-        
-        //System.out.println("\n"+k+" happiest couples are: \n");
-    for (int t=10;t>0;t--)
-    {
-        for (i=0; i<numcouples; i++)
-        {
-            c = couples[i];
-            c.bf.gift(gifts,bw);
-            //c.gf.setHappiness();
-            //System.out.println(c.gf +"    "+c.gf.happ);
-        }
-        Arrays.sort(couples,0,numcouples,coupleByHapp);
-        for (i=0; i<k; i++)
-        {
-            c = couples[i];
-            c.gf.breakup();
-            c.bf.breakup();
-            System.out.println(c.gf.name+" and "+c.bf.name+" broke up. ");
-            Timestamp TS = new Timestamp(System.currentTimeMillis());
-            bw.write(TS+" "+c.gf.name+" and "+c.bf.name+" broke up. ");
-            bw.newLine();
-        }
-        
-        for (i=0, j=numcouples-1; i<k; i++)
-        {
-            c = couples[i];
-            g = c.gf;
-            switch(g.choice)
-            {
-                case 0:
-                    b = g.choose(boys_attr);
-                    break;
-                case 1:
-                    b = g.choose(boys_rich);
-                    break;
-                case 2:
-                    b = g.choose(boys_iq);
-                    break;
+            try {
+                throw new NoArgumentSupplied(" k ",5);
             }
-            if (b!=null)
+            catch(NoArgumentSupplied exp)
             {
-                System.out.println(g.name+" got committed to "+b.name);
-                Timestamp TS = new Timestamp(System.currentTimeMillis());
-                bw.write(TS+" "+g.name+" got committed to "+b.name);
-                bw.newLine();
-                c.bf=b;
-            }
-            else
-            {
-                couples[i] = couples[j];
-                couples[i] = null;
-                j--;
-                numcouples--;
+                Exceptions.catcher(exp);
+                k = 5;
             }
         }
-        
     }
-        /*System.out.println();
-        
-        for (i=0; i<numcouples; i++)
-            System.out.println(couples[i]);
-        */
-        
-        if (bw != null)bw.close();
-        if (fw != null)fw.close();
     
+    /**
+     * sets t (frequency of gifting) as inputted, or 10 otherwise
+     * @param args command line input
+     */
+    public static void setT(String args[])
+    {
+        try
+        {
+            t = Integer.parseInt(args[0]);
+        }
+        catch (ArrayIndexOutOfBoundsException ex)
+        {
+            try {
+                throw new NoArgumentSupplied(" t (frequency of gifting)  ",10);
+            }
+            catch(NoArgumentSupplied exp)
+            {
+                Exceptions.catcher(exp);
+                t = 10;
+            }
+        }
     }
+    
 }

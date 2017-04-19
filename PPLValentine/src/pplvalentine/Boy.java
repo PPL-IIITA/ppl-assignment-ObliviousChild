@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package pplvalentine;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
-
 /**
  *
  * @author Megha
@@ -27,6 +22,7 @@ public abstract class Boy
     double happ;
     int e,l,u;
     private final int originalBudget;
+    int giftsCheckedUptoIndex;
     
     Boy (String n, int a, int r, int b, int i)
     {
@@ -61,7 +57,7 @@ public abstract class Boy
     {
         return originalBudget;
     }
-    abstract void gift (Gift gifts[], BufferedWriter bw) throws IOException;
+    abstract void gift (Gift gifts[]);
         
     abstract double happiness ();
     
@@ -87,11 +83,32 @@ public abstract class Boy
         return gf;
     }
     
-    void log(BufferedWriter bw) throws IOException
+/*    void giftingVersion2 (Gift gifts[], BufferedWriter bw) throws IOException 
     {
-            Timestamp TS = new Timestamp(System.currentTimeMillis());
-            bw.write(TS+" "+name+" gifted "+gf.name+" gifts of total cost "+(budget-wallet)+" essential: "+e+" luxury: "+l+" utility: "+u);
-            bw.newLine();
+        int i = giftsCheckedUptoIndex;
+        int n = gifts.length;
+        Gift g;
+        for (; (i<n && !(l!=0 && e!=0 && u!=0)); i++)
+        {
+            g = gifts[i];
+            switch (g.getType())
+            {
+                case 'l':
+                    if (l!=0)   {gf.gift(g);log(bw);}
+                    break;
+                case 'e':
+                    if (e!=0)   {gf.gift(g);log(bw);}
+                    break;
+                case 'u':
+                    if (u!=0)   {gf.gift(g);log(bw);}
+                    break;
+            }
+        }
+    }
+  */  
+    void log()
+    {
+        Logger.gifting(name,gf.name,budget-wallet,e,l,u);
     }
     
     @Override

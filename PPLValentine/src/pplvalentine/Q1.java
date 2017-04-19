@@ -5,11 +5,7 @@
  */
 package pplvalentine;
 
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -25,36 +21,43 @@ public class Q1
     static Girl girls[];
     static Gift gifts[];
     static Couple couples[] = new Couple[12];
+    static int noofcouples;
     
-    public static void main(String[] args) throws FileNotFoundException, IOException
+    public static void main(String[] args)
     {
-        // TODO code application logic here
-        
+        handleInput();
+        allotBfs();
+        Logger.close();
+    }
+    
+    private static void handleInput() 
+    {
         InputHandler input = new InputHandler();
-        boys_attr = input.boycreator();                 //by attr
-        boys_rich = boys_attr.clone();                 //by budget
-        boys_iq = boys_attr.clone();                 //by iq
-        girls = input.girlcreator();
-        gifts = input.giftcreator();
-        Boy b=null;
-        int i,j=0;
-        Girl g=null;
-        Couple c=null;
-        Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
-        Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
-        Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
-        
-        Arrays.sort(boys_attr,compareByAttr);
-        Arrays.sort(boys_rich,compareByBudget);
-        Arrays.sort(boys_iq,compareByIq);
-        
-        //Arrays.sort(myTypes, (a,b) -> a.name.compareTo(b.name));
-        //Comparator<String> = Comparator.comparing(String::length);
-        //Comparator<Integer> byString = Comparator.comparing(String::valueOf);
-        
-        FileWriter fw = new FileWriter("log.txt");
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (i=0; i<12; i++)
+        try 
+        {
+            boys_attr = input.boycreator();             // to be sorted by attr
+            boys_rich = boys_attr.clone();              // to be sorted by budget
+            boys_iq = boys_attr.clone();                // to be sorted by iq
+            girls = input.girlcreator();
+            gifts = input.giftcreator();
+            Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
+            Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
+            Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
+            Arrays.sort(boys_attr,compareByAttr);
+            Arrays.sort(boys_rich,compareByBudget);
+            Arrays.sort(boys_iq,compareByIq);
+            Logger.configure();
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            System.out.println("Input File not found.");
+        }
+    }
+    
+    private static void allotBfs() 
+    {
+        Girl g; Boy b=null; int j=0;
+        for (int i=0; i<12; i++)
         {
             g = girls[i];
             switch(g.choice)
@@ -72,19 +75,23 @@ public class Q1
             if (b!=null)
             {
                 System.out.println(g.name+" got committed to "+b.name);
-                Timestamp TS = new Timestamp(System.currentTimeMillis());
-                bw.write(TS+" "+g.name+" got committed to "+b.name);
+                Logger.commit(g.name,b.name);
                 couples[j++] = new Couple(g,b);
             }
             else
             {
-                System.out.println(g.name+ " did not find anyone");
-                //bw.write("girl index " +i+ " did not find anyone");
+                try
+                {
+                throw new BfNotFound(g.name);
+                }
+                catch (BfNotFound ex)
+                {
+                    Exceptions.catcher(ex);
+                }
             }
-            bw.newLine();
         }
-        if (bw != null)bw.close();
-        if (fw != null)fw.close();
+        noofcouples=j;
     }
+
 }    
     

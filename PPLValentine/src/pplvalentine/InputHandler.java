@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- *
+ * returns data structures from input files
  * @author Mac
  */
 public class InputHandler 

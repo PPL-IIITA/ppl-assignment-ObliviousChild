@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pplvalentine;
+package q9;
 
 /**
- *
+ * is thrown when a girl cannot find a boyfriend
  * @author Megha
  */
-abstract public class GfFinder 
+public class BfNotFound extends Exception
 {
-    abstract void addCouple(NaiveCouple nc);
-    abstract NaiveCouple getGf(String boy);
+    BfNotFound(String g)
+    {
+        super("404 Bf not found for "+g);
+    }
 }

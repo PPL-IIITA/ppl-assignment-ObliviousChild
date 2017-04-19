@@ -5,11 +5,7 @@
  */
 package pplvalentine;
 
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
@@ -26,45 +22,75 @@ public class Q7
     static Girl girls[];
     static Gift gifts[];
     static Couple couples[] = new Couple[12];
+    static GfFinder finder = null;
+    static int howToFind;
     
-    public static void main(String[] args) throws FileNotFoundException, IOException
+    public static void main(String[] args) throws FileNotFoundException
     {
-        // TODO code application logic here
-        
-        InputHandler input = new InputHandler();
-        boys_attr = input.boycreator();                 //by attr
-        boys_rich = boys_attr.clone();                 //by budget
-        boys_iq = boys_attr.clone();                 //by iq
-        girls = input.girlcreator();
-        gifts = input.giftcreator();
-        Boy b=null;
-        int i,j=0;
-        Girl g=null;
-        Couple c=null;
-        Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
-        Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
-        Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
-        
-        Arrays.sort(boys_attr,compareByAttr);
-        Arrays.sort(boys_rich,compareByBudget);
-        Arrays.sort(boys_iq,compareByIq);
-        
-        //Arrays.sort(myTypes, (a,b) -> a.name.compareTo(b.name));
-        //Comparator<String> = Comparator.comparing(String::length);
-        //Comparator<Integer> byString = Comparator.comparing(String::valueOf);
-        
-        Random r=new Random();
-        int howToFind;
+        handleInput();
+        setHowToFind(args);
+        setFinder();
+        allotBfs();
+        findGf();
+    }
+    
+    /**
+     * sets howToFind as inputted, otherwise randomly
+     * @param args 
+     */
+    private static void setHowToFind(String args[])
+    {
         try
         {
             howToFind = Integer.parseInt(args[0]);
         }
-        catch (ArrayIndexOutOfBoundsException e)
+        catch (ArrayIndexOutOfBoundsException ex)
         {
-            howToFind = r.nextInt(3);
+            try 
+            {
+                throw new NoArgumentSupplied(" howToFind ","randomly");
+            }
+            catch(NoArgumentSupplied exp)
+            {
+                Exceptions.catcher(exp);
+                Random r=new Random();
+                howToFind = r.nextInt(3);
+            }
         }
-        GfFinder finder=null;
-        NaiveCouple nc;
+    }
+    
+    /**
+     * creates initial data structures for pre generated random girls, boys and gifts
+     */
+    private static void handleInput() 
+    {
+        InputHandler input = new InputHandler();
+        try 
+        {
+            boys_attr = input.boycreator();             // to be sorted by attr
+            boys_rich = boys_attr.clone();              // to be sorted by budget
+            boys_iq = boys_attr.clone();                // to be sorted by iq
+            girls = input.girlcreator();
+            gifts = input.giftcreator();
+            Comparator<Boy> compareByAttr= Comparator.comparingInt(Boy::getNegAttr);
+            Comparator<Boy> compareByBudget= Comparator.comparingInt(Boy::getNegBudget);
+            Comparator<Boy> compareByIq= Comparator.comparingInt(Boy::getNegIq);
+            Arrays.sort(boys_attr,compareByAttr);
+            Arrays.sort(boys_rich,compareByBudget);
+            Arrays.sort(boys_iq,compareByIq);
+            Logger.configure();
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            System.out.println("Input File not found.");
+        }
+    }
+    
+    /**
+     * creates object of required type of finder according to value of howToFind
+     */
+    public static void setFinder()
+    {
         switch(howToFind)
         {
             case 0:
@@ -80,9 +106,40 @@ public class Q7
                 System.out.println("Using Hashtable.\n");
                 break;
         }
-        FileWriter fw = new FileWriter("log.txt");
-        BufferedWriter bw = new BufferedWriter(fw);
-        for (i=0; i<12; i++)
+    }
+    
+    /**
+     * finds gf of all boys using finder object
+     */
+    private static void findGf()
+    {
+        NaiveCouple nc;
+        for (int i=0; i<50; i++)
+        {
+            nc = finder.getGf(boys_attr[i].name);
+            try 
+            {
+                if (nc==null)
+                throw new SingleGuy(boys_attr[i].name);
+            } 
+            catch (SingleGuy ex) 
+            {
+                Exceptions.catcher(ex);
+                continue;
+            }
+            System.out.println(nc);
+        }
+    }
+    
+    /**
+     * allots boyfriends to all girls in order of input
+     */
+    public static void allotBfs()
+    {
+        Girl g;
+        Boy b = null;
+        NaiveCouple nc;
+        for (int i=0; i<12; i++)
         {
             g = girls[i];
             switch(g.choice)
@@ -100,30 +157,22 @@ public class Q7
             if (b!=null)
             {
                 System.out.println(g.name+" got committed to "+b.name);
-                Timestamp TS = new Timestamp(System.currentTimeMillis());
-                bw.write(TS+" "+g.name+" got committed to "+b.name);
+                Logger.commit(g.name, b.name);
                 nc = new NaiveCouple(g.name,b.name);
                 finder.addCouple(nc);
-//couples[j++] = new Couple(g,b);
             }
             else
             {
-                System.out.println(g.name+ " did not find anyone");
-                //bw.write("girl index " +i+ " did not find anyone");
+                try
+                {
+                throw new BfNotFound(g.name);
+                }
+                catch (BfNotFound ex1)
+                {
+                    Exceptions.catcher(ex1);
+                }
             }
-            bw.newLine();
         }
-        
-        for (i=0; i<50; i++)
-        {
-            nc = finder.getGf(boys_attr[i].name);
-            if (nc==null)
-                System.out.println("Poor guy "+boys_attr[i].name+" is single.");
-            else
-                System.err.println(nc);
-        }
-        if (bw != null)bw.close();
-        if (fw != null)fw.close();
     }
 }    
     
