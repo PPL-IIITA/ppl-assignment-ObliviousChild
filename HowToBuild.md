@@ -2,7 +2,7 @@
 $ git clone https://github.com/PPL-IIITA/ppl-assignment-ObliviousChild
 ```
 
-For Q1-8
+For Q1-7
 ```
 $ cd ppl-assignment-ObliviousChild/PPLValentine/src/pplvalentine
 $ javac *.java
@@ -10,40 +10,57 @@ $ cd ..
 ```
 For Q3:
 ```
-$ java pplvalentine.Q3 <optional: value of k;defaults to 5>
+$ java pplvalentine.Q3 [optional: value of k;defaults to 5]
 ```
 
 For Q4:
 ```
-$ java pplvalentine.Q4 <optional: value of k;defaults to 5>
+$ java pplvalentine.Q4 [optional: value of k;defaults to 5]
 ```
 
 For Q5:
 ```
-$ java pplvalentine.Q5 <optional: enter 1 for old method>
+$ java pplvalentine.Q5 [optional: enter 1 for old method; otherwise new method is used]
 ```
 
-For Q6: (takes t = 10)
+For Q6:
 ```
-$ java pplvalentine.Q6 
+$ java pplvalentine.Q6 value-of-t [k=5]
+or
+$ java pplvalentine.Q6 value-of-t value-of-k
+or
+$ java pplvalentine.Q6 [t=10] [k=5]
 ```
 
 For Q7: (takes random value if unspecified)
 ```
-$ java pplvalentine.Q7 <optional: 0 for array, 1 for sortedarray, 2 for hashtable>
+$ java pplvalentine.Q7 [optional: 0 for array, 1 for sortedarray, 2 for hashtable]
 ```
 
-For Q8:
+For Q8: (makes 4-best structure)
 ```
-$ java pplvalentine.Q8
+$ cd ppl-assignment-ObliviousChild/Q8/src/q8
+$ javac *.java
+$ cd ..
+$ java q8.Q8 how-to-gift no-of-couples
+or
+$ java q8.Q8 how-to-gift [k=5]
+or
+$ java q8.Q8 [howToGift=0] [k=5]
 ```
 
-
-For Q9: (takes k as 5)
+For Q9: (makes 4-best structure)
 ```
 $ cd ppl-assignment-ObliviousChild/Q9/src/q9
 $ javac *.java
 $ cd ..
-$ java q9.Q9
+$ java q9.Q9 [optional: no-of-couples; default=5]
 ```
 
+For Q9: (makes 4-best structure)
+```
+$ cd ppl-assignment-ObliviousChild/Q10/src/q10
+$ javac *.java
+$ cd ..
+$ java q10.Q10 [optional: no-of-couples; default=5]
+```
