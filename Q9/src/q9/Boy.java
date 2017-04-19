@@ -5,12 +5,10 @@
  */
 package q9;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
 
 /**
  *
@@ -66,12 +64,13 @@ public abstract class Boy
     {
         return originalBudget;
     }
-    abstract void gift (ArrayList<Gift> gifts, Comparator<Gift> cmp1, Comparator<Gift> cmp2, BufferedWriter bw) throws IOException;
+    abstract void gift (ArrayList<Gift> gifts, Comparator<Gift> cmp1, Comparator<Gift> cmp2);
         
     abstract double happiness ();
     
     Gift getGift (ArrayList<Gift> gifts, Comparator<Gift> cmp1, Comparator<Gift> cmp2)
     {
+        Random r = new Random();
         gifts = bestk.findKBest(gifts, cmp1);
         Collections.sort(gifts,cmp2);
         Gift g = gifts.get(0);
@@ -85,6 +84,7 @@ public abstract class Boy
         gf = null;
         happ = 0;
     }
+    
     Girl choose (Girl girls[])
     {
         if (gf!=null)
@@ -101,7 +101,7 @@ public abstract class Boy
         return gf;
     }
     
-    void giftingVersion2 (Gift gifts[], BufferedWriter bw) throws IOException 
+/*    void giftingVersion2 (Gift gifts[], BufferedWriter bw) throws IOException 
     {
         int i = giftsCheckedUptoIndex;
         int n = gifts.length;
@@ -123,12 +123,10 @@ public abstract class Boy
             }
         }
     }
-    
-    void log(BufferedWriter bw) throws IOException
+  */  
+    void log()
     {
-            Timestamp TS = new Timestamp(System.currentTimeMillis());
-            bw.write(TS+" "+name+" gifted "+gf.name+" gifts of total cost "+(budget-wallet)+" essential: "+e+" luxury: "+l+" utility: "+u);
-            bw.newLine();
+        Logger.gifting(name,gf.name,budget-wallet,e,l,u);
     }
     
     @Override

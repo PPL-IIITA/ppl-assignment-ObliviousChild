@@ -6,25 +6,18 @@
 package q9;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
- *
+ * generates random input files
  * @author Mac
  */
 public class InputCreator
 {
     static FileWriter fw;
-    static PrintWriter pw;
     static BufferedWriter bw;
     static Random r=new Random();
-    static File f;
     
     public static void main(String[] args)
     {
@@ -87,6 +80,11 @@ public class InputCreator
 	}
     }
     
+    /**
+     * * 60 gifts
+     * 20 of each type
+     * @throws IOException 
+     */
     static void gifts() throws IOException
     {
         fw = new FileWriter("gifts.txt");
@@ -122,6 +120,15 @@ public class InputCreator
 
     }
     
+    /**
+     * 12 girls
+     * unique random string names in CAPITALS
+     * 4 of each type
+     * maintenance cost between 50 to 450
+     * iq between 100 to 200
+     * attractiveness between 1 to 9
+     * @throws IOException 
+     */
     static void girls() throws IOException
     {
         fw = new FileWriter("girls.txt");
@@ -150,6 +157,15 @@ public class InputCreator
         //bw.close();
     }
     
+    /**
+     * 50 boys
+     * unique random string names
+     * budget between 50 to 450
+     * iq between 100 to 200
+     * attractiveness between 1 to 9
+     * attractiveness required <= own attractiveness + 2
+     * @throws IOException 
+     */
     static void boys() throws IOException
     {
         fw = new FileWriter("boys.txt");

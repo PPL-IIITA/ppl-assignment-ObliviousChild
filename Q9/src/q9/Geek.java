@@ -4,12 +4,8 @@
  * and open the template in the editor.
  */
 package q9;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
-
 /**
  *
  * @author Megha
@@ -30,7 +26,7 @@ public class Geek extends Boy
     }
 
     @Override
-    void gift (ArrayList<Gift> gifts, Comparator<Gift> cmp1, Comparator<Gift> cmp2, BufferedWriter bw) throws IOException
+    void gift (ArrayList<Gift> gifts, Comparator<Gift> cmp1, Comparator<Gift> cmp2)
     {
     if (gf==null)                   // gifts sorted by price, 60 gifts
             return;
@@ -55,6 +51,7 @@ public class Geek extends Boy
                 case 'u':   u++;    break;
                 case 'e':   e++;    break;
             }
+            gifts.remove(g);
         }
         
         giftsCheckedUptoIndex = i;
@@ -63,7 +60,7 @@ public class Geek extends Boy
         {
             budget-=wallet;
             wallet=0;
-            log(bw);
+            log();
             return;
         }
         
@@ -82,6 +79,6 @@ public class Geek extends Boy
         }
         
         //Gifting complete. logging.
-        log(bw);
+        log();
     }
 }

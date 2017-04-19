@@ -15,21 +15,37 @@ import java.util.Comparator;
  */
 public class BestK {
     
+    
+    int k = 4;
     /**
      * Provides k best items from ArrayList of items
      * @param <T> type of item
      * @param source ArrayList from which k best items to be fetched
      * @param cmp Comparator used for sorting
-     * @param k value of k for k best items
      * @return ArrayList of k best items
      */
-    
-    int k = 5;
     public <T> ArrayList<T> findKBest(ArrayList<T> source, Comparator<T> cmp) 
     {
+        //k = 20;
         Collections.sort(source,cmp);
-        ArrayList<T> res = new ArrayList<T>(source.subList(0, k-1));
+        ArrayList<T> res = null;
+        try
+        {
+            res= new ArrayList<>(source.subList(0, k));
+        }
+        catch (Exception Ex)
+        {
+            try
+            {
+                throw new kOutOfBounds(k,source.size());
+            }
+            catch (kOutOfBounds ex)
+            {
+                Exceptions.catcher(ex);
+                k = source.size();
+                res= new ArrayList<>(source.subList(0, k));
+            }
+        }
         return res;
     }
-    
 }

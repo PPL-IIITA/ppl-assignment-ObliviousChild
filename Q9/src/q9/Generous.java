@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package q9;
-
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -30,7 +27,7 @@ public class Generous extends Boy
     }
 
     @Override
-    void gift (ArrayList<Gift> gifts, Comparator<Gift> cmp1, Comparator<Gift> cmp2, BufferedWriter bw) throws IOException
+    void gift (ArrayList<Gift> gifts, Comparator<Gift> cmp1, Comparator<Gift> cmp2)
     {
         if (gf==null)                   // gifts sorted by price, 60 gifts
             return;
@@ -55,17 +52,18 @@ public class Generous extends Boy
                 case 'u':   u++;    break;
                 case 'e':   e++;    break;
             }
+            gifts.remove(g);
             //wallet might go into negative. If so, it means that budget needs to be updated and gifting process is complete. Proceed to logging.
             if (wallet<=0)
             {
                 budget-=wallet;
                 wallet=0;
                 giftsCheckedUptoIndex = i+1;
-                log(bw);
+                log();
                 return;
             }
         }
         giftsCheckedUptoIndex = i;
-        log(bw);
+        log();
     }
 }
