@@ -1,0 +1,19 @@
+2017-04-19 09:15:00.776 :COMMITMENT	 QWERT and nopqr
+2017-04-19 09:15:00.789 :EXCEPTION	 q10.BfNotFound: 404 Bf not found for WERTY
+2017-04-19 09:15:00.79 :EXCEPTION	 q10.BfNotFound: 404 Bf not found for ERTYU
+2017-04-19 09:15:00.791 :EXCEPTION	 q10.BfNotFound: 404 Bf not found for RTYUI
+2017-04-19 09:15:00.791 :COMMITMENT	 TYUIO and yzqwe
+2017-04-19 09:15:00.791 :COMMITMENT	 YUIOP and jklmn
+2017-04-19 09:15:00.792 :EXCEPTION	 q10.BfNotFound: 404 Bf not found for UIOPA
+2017-04-19 09:15:00.792 :EXCEPTION	 q10.BfNotFound: 404 Bf not found for IOPAS
+2017-04-19 09:15:00.792 :COMMITMENT	 OPASD and vwxyz
+2017-04-19 09:15:00.793 :COMMITMENT	 PASDF and opqrs
+2017-04-19 09:15:00.793 :EXCEPTION	 q10.BfNotFound: 404 Bf not found for ASDFG
+2017-04-19 09:15:00.794 :COMMITMENT	 SDFGH and hjklz
+2017-04-19 09:15:00.799 :GIFTING	 QWERT gifted nopqr gifts of total price 496. Essential: 18, Luxury: 17, Utility: 18
+2017-04-19 09:15:00.801 :GIFTING	 TYUIO gifted yzqwe gifts of total price 348. Essential: 16, Luxury: 14, Utility: 14
+2017-04-19 09:15:00.802 :GIFTING	 YUIOP gifted jklmn gifts of total price 157. Essential: 10, Luxury: 10, Utility: 9
+2017-04-19 09:15:00.803 :GIFTING	 OPASD gifted vwxyz gifts of total price 330. Essential: 15, Luxury: 14, Utility: 14
+2017-04-19 09:15:00.804 :GIFTING	 PASDF gifted opqrs gifts of total price 95. Essential: 8, Luxury: 9, Utility: 6
+2017-04-19 09:15:00.804 :GIFTING	 SDFGH gifted hjklz gifts of total price 248. Essential: 12, Luxury: 14, Utility: 12
+2017-04-19 09:15:00.805 :EXCEPTION	 q10.NoArgumentSupplied: No argument supplied for k . Defaulting k = 5
