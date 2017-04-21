@@ -1,0 +1,45 @@
+2017-04-21 13:25:26.172 :COMMITMENT	 QWERT and lmnop
+2017-04-21 13:25:26.192 :GIFTING	 QWERT gifted lmnop gifts of total price 392. Essential: 16, Luxury: 17, Utility: 15
+2017-04-21 13:25:26.206 :COMMITMENT	 WERTY and ijklm
+2017-04-21 13:25:26.206 :GIFTING	 WERTY gifted ijklm gifts of total price 176. Essential: 11, Luxury: 11, Utility: 10
+2017-04-21 13:25:26.207 :COMMITMENT	 ERTYU and mnopq
+2017-04-21 13:25:26.208 :GIFTING	 ERTYU gifted mnopq gifts of total price 92. Essential: 8, Luxury: 7, Utility: 7
+2017-04-21 13:25:26.211 :COMMITMENT	 RTYUI and xyzqw
+2017-04-21 13:25:26.211 :GIFTING	 RTYUI gifted xyzqw gifts of total price 495. Essential: 18, Luxury: 18, Utility: 17
+2017-04-21 13:25:26.214 :COMMITMENT	 TYUIO and vbnmq
+2017-04-21 13:25:26.214 :GIFTING	 TYUIO gifted vbnmq gifts of total price 234. Essential: 12, Luxury: 13, Utility: 12
+2017-04-21 13:25:26.217 :COMMITMENT	 YUIOP and nmqwe
+2017-04-21 13:25:26.217 :GIFTING	 YUIOP gifted nmqwe gifts of total price 513. Essential: 18, Luxury: 18, Utility: 18
+2017-04-21 13:25:26.219 :COMMITMENT	 UIOPA and qwert
+2017-04-21 13:25:26.22 :GIFTING	 UIOPA gifted qwert gifts of total price 330. Essential: 15, Luxury: 15, Utility: 14
+2017-04-21 13:25:26.221 :COMMITMENT	 IOPAS and defgh
+2017-04-21 13:25:26.222 :GIFTING	 IOPAS gifted defgh gifts of total price 260. Essential: 13, Luxury: 13, Utility: 12
+2017-04-21 13:25:26.226 :COMMITMENT	 OPASD and hjklz
+2017-04-21 13:25:26.226 :GIFTING	 OPASD gifted hjklz gifts of total price 222. Essential: 12, Luxury: 13, Utility: 11
+2017-04-21 13:25:26.228 :COMMITMENT	 PASDF and jklzx
+2017-04-21 13:25:26.228 :GIFTING	 PASDF gifted jklzx gifts of total price 376. Essential: 16, Luxury: 15, Utility: 15
+2017-04-21 13:25:26.229 :COMMITMENT	 ASDFG and ghjkl
+2017-04-21 13:25:26.229 :GIFTING	 ASDFG gifted ghjkl gifts of total price 459. Essential: 17, Luxury: 17, Utility: 17
+2017-04-21 13:25:26.23 :COMMITMENT	 SDFGH and uvwxy
+2017-04-21 13:25:26.23 :GIFTING	 SDFGH gifted uvwxy gifts of total price 360. Essential: 15, Luxury: 16, Utility: 15
+2017-04-21 13:25:26.236 :BREAKUP	 QWERT and lmnop
+2017-04-21 13:25:26.238 :NEWGIRL	  Name QWERT Attractiveness 8 Maintenance Cost 392 Intelligence 111 Choice 0
+2017-04-21 13:25:26.239 :COMMITMENT	 hijkl and QWERT
+2017-04-21 13:25:26.239 :BREAKUP	 ERTYU and mnopq
+2017-04-21 13:25:26.239 :NEWGIRL	  Name ERTYU Attractiveness 7 Maintenance Cost 87 Intelligence 195 Choice 0
+2017-04-21 13:25:26.24 :COMMITMENT	 xvbnm and ERTYU
+2017-04-21 13:25:26.24 :BREAKUP	 RTYUI and xyzqw
+2017-04-21 13:25:26.24 :NEWGIRL	  Name RTYUI Attractiveness 5 Maintenance Cost 484 Intelligence 148 Choice 2
+2017-04-21 13:25:26.24 :COMMITMENT	 xyzqw and RTYUI
+2017-04-21 13:25:26.24 :BREAKUP	 UIOPA and qwert
+2017-04-21 13:25:26.24 :NEWGIRL	  Name UIOPA Attractiveness 2 Maintenance Cost 328 Intelligence 148 Choice 2
+2017-04-21 13:25:26.241 :BREAKUP	 OPASD and hjklz
+2017-04-21 13:25:26.243 :NEWGIRL	  Name OPASD Attractiveness 6 Maintenance Cost 215 Intelligence 148 Choice 0
+2017-04-21 13:25:26.244 :COMMITMENT	 efghi and OPASD
+2017-04-21 13:25:26.245 :BREAKUP	 PASDF and jklzx
+2017-04-21 13:25:26.245 :NEWGIRL	  Name PASDF Attractiveness 8 Maintenance Cost 368 Intelligence 137 Choice 0
+2017-04-21 13:25:26.245 :COMMITMENT	 opasd and PASDF
+2017-04-21 13:25:26.246 :BREAKUP	 SDFGH and uvwxy
+2017-04-21 13:25:26.246 :NEWGIRL	  Name SDFGH Attractiveness 8 Maintenance Cost 355 Intelligence 182 Choice 2
+2017-04-21 13:25:26.248 :COMMITMENT	 pasdf and SDFGH
+2017-04-21 13:25:26.261 :EXCEPTION	 q12.NoArgumentSupplied: No argument supplied for k . Defaulting k = 5
