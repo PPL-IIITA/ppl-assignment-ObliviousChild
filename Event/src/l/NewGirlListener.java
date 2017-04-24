@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package l;
+package L;
 
 /**
  *
@@ -11,5 +11,5 @@ package l;
  */
 public interface NewGirlListener 
 {
-    public void handleNewGirlEvent(q12.Girl g);
+    public boolean handleNewGirlEvent(q12.Girl g);
 }

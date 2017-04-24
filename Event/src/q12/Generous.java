@@ -25,14 +25,12 @@ public class Generous extends Boy
     }
 
     @Override
-    void gift (ArrayList<Gift> gifts)
+    public void gift (ArrayList<Gift> gifts)
     {
         if (gf==null)                   // gifts sorted by price, 60 gifts
             return;
         int target;
         int i;l=0;u=0;e=0;
-        budget = getOriginalBudget();
-        wallet = budget;                //reset wallet amount to budget every time before gifting begins
         //int n=gifts.length;
         int mcost = gf.maincost;
         
@@ -53,7 +51,7 @@ public class Generous extends Boy
             //wallet might go into negative. If so, it means that budget needs to be updated and gifting process is complete. Proceed to logging.
             if (wallet<=0)
             {
-                budget-=wallet;
+                walletBeforeGifting-=wallet;
                 wallet=0;
                 giftsCheckedUptoIndex = i+1;
                 log();

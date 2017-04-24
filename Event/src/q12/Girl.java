@@ -6,8 +6,8 @@
 package q12;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
 
 /**
  *
@@ -15,16 +15,16 @@ import java.util.Comparator;
  */
 public abstract class Girl 
 {
-    String name;
-    final int attr;
-    final int maincost;
-    final int iq;
+    public String name;
+    public final int attr;
+    public final int maincost;
+    public final int iq;
     int gifts;
     final int choice;
     //int type;
     int sumprice;
-    Boy bf;
-    Boy exbf;
+    public Boy bf;
+    public Boy exbf;
     double happ;
     
     Girl(String n, int a, int c, int i, int ch)
@@ -40,7 +40,7 @@ public abstract class Girl
     
     abstract void gift(Gift g);
     
-    abstract double happiness();
+    public abstract double happiness();
     
     abstract char getType();
     
@@ -93,10 +93,19 @@ public abstract class Girl
         return (" Name "+name+" Attractiveness "+attr+" Maintenance Cost "+maincost+" Intelligence "+iq+" Choice "+choice);
     }
 
-    boolean qualified(Boy b) 
+    public boolean qualified(Boy b) 
     {
-        if (b.gf==null && b.budget>=maincost && attr>=b.attrreq)
-            return true;
-        return false;
+        return (b.gf==null && b.budget>=maincost && attr>=b.attrreq && b!=exbf);
+    }
+    
+    /**
+     * probability of acceptance = 30%
+     * @param b
+     * @return 
+     */
+    public boolean proposed(Boy b)
+    {
+        Random r = new Random(10);
+        return (r.nextInt()<=2);
     }
 }

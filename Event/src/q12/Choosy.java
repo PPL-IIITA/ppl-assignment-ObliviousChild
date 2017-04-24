@@ -26,7 +26,7 @@ public class Choosy extends Girl
     }
     
     @Override
-    double happiness()
+    public double happiness()
     {
         if (bf==null) return -1;
         if (sumprice<maincost)

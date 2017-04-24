@@ -6,10 +6,10 @@
 package q12;
 
 /**
- *
+ * Listener to BREAKUP and GIFTING events
  * @author Megha
  */
-public class Couple implements L.BreakupListener
+public class Couple implements L.BreakupListener,L.GiftingListener
 {
     public Girl gf;
     public Boy bf;
@@ -50,11 +50,11 @@ public class Couple implements L.BreakupListener
     @Override
     public String toString()
     {
-        return gf.name+"  "+bf.name;
+        return gf.name+" and "+bf.name;
     }
 
     /**
-     * 
+     * handler for BREAKUP event. Raises NewGirlInTown event.
      */
     @Override
     public void handleBreakup() 

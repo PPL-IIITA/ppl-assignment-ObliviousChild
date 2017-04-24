@@ -24,13 +24,13 @@ public class Desperate extends Girl
     }
     
     @Override
-    double happiness()
+    public double happiness()
     {
         if (bf==null) return -1;
         if (sumprice<maincost)
             return 0;
         int gift = gifts-maincost;
-        happ= Math.pow(1.2,gift);
+        happ= Math.pow(1.01,gift);
         return happ;
     }
     

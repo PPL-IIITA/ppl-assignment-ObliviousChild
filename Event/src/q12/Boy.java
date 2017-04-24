@@ -5,28 +5,30 @@
  */
 package q12;
 
+import E.*;
 import L.*;
 import java.util.ArrayList;
 import java.util.Random;
 /**
- *
+ * listener to NewGirlInTown event
  * @author Megha
  */
-public abstract class Boy //implements L.NewGirlListener
+public abstract class Boy implements L.NewGirlListener
 {    
     String name;
-    final int attr;
-    int budget;
-    final int iq;
+    public final int attr;
+    public int budget;
+    public final int iq;
     //int type;
-    Girl gf;
-    Girl exgf;
-    final int attrreq;
-    int wallet;
+    public Girl gf;
+    public Girl exgf;
+    public final int attrreq;
+    public int wallet;
     double happ;
     int e,l,u;
     private final int originalBudget;
     int giftsCheckedUptoIndex;
+    public int walletBeforeGifting;
     
     Boy (String n, int a, int r, int b, int i)
     {
@@ -37,7 +39,7 @@ public abstract class Boy //implements L.NewGirlListener
         iq=i;
         attrreq=r;
         gf=null;
-        wallet=budget;
+        wallet=0;
         happ=0;
         e=0;
         l=0;
@@ -57,13 +59,38 @@ public abstract class Boy //implements L.NewGirlListener
     {
         return -iq;
     }
-    int getOriginalBudget()
-    {
-        return originalBudget;
-    }
-    abstract void gift (ArrayList<Gift> gifts);
+    abstract public void gift (ArrayList<Gift> gifts);
         
     abstract double happiness ();
+    
+    /**
+     * credits into single boy's wallet
+     */
+    public void credit(double i)
+    {
+        
+        wallet+=i*originalBudget;
+        walletBeforeGifting = wallet;
+        
+    }
+    /**
+     * credits into committed boy's wallet
+     */
+    public void credit(double i, Couple c,int threshold)
+    {
+        wallet+=i*originalBudget;
+        walletBeforeGifting = wallet;
+        
+        Breakup breakup;
+                Gifting gifting = new Gifting (c);
+                if (c.getHapp()<threshold)
+                {
+                    breakup = new Breakup(c);
+                    Q12.toremove.add(c);
+                }
+            
+            
+    }
     
     void breakup()
     {
@@ -72,7 +99,7 @@ public abstract class Boy //implements L.NewGirlListener
         happ = 0;
     }
     
-    Girl choose (Girl girls[])
+    public Girl choose (Girl girls[])
     {
         if (gf!=null)
             return null;
@@ -88,32 +115,9 @@ public abstract class Boy //implements L.NewGirlListener
         return gf;
     }
     
-/*    void giftingVersion2 (Gift gifts[], BufferedWriter bw) throws IOException 
-    {
-        int i = giftsCheckedUptoIndex;
-        int n = gifts.length;
-        Gift g;
-        for (; (i<n && !(l!=0 && e!=0 && u!=0)); i++)
-        {
-            g = gifts[i];
-            switch (g.getType())
-            {
-                case 'l':
-                    if (l!=0)   {gf.gift(g);log(bw);}
-                    break;
-                case 'e':
-                    if (e!=0)   {gf.gift(g);log(bw);}
-                    break;
-                case 'u':
-                    if (u!=0)   {gf.gift(g);log(bw);}
-                    break;
-            }
-        }
-    }
-  */  
     void log()
     {
-        Logger.gifting(name,gf.name,budget-wallet,e,l,u);
+        Logger.gifting(name,gf.name,walletBeforeGifting-wallet,gf.happiness()+happiness());
     }
     
     @Override
@@ -122,9 +126,17 @@ public abstract class Boy //implements L.NewGirlListener
         return (name + " attr "+attr+" rich "+budget+" iq "+iq);
     }
 
+    /**
+     * proposes to new girl, triggers gifting event on new couple if accepted
+     * @param g the newly single girl
+     * @return 
+     */
+    @Override
     public boolean handleNewGirlEvent(Girl g) 
     {
         if (g.qualified(this))
+        {
+        if (g.proposed(this))
         {
             Random r=new Random();
             if(r.nextInt(5)==1)
@@ -132,10 +144,16 @@ public abstract class Boy //implements L.NewGirlListener
             g.bf = this;
             gf = g;
             Q12.singleBoys.remove(this);
-            Q12.toadd.add(new Couple(g,this));
-            Logger.commit(name, gf.name);
+            Couple c = new Couple(g,this);
+            Q12.toadd.add(c);
+            Logger.proposalAccepted(name, gf.name);
+            Gifting gifting = new Gifting(c);
+            //trigger gifting
             return true;
             }
+        }
+        else
+            Logger.proposalRejected(name, g.name);
         }
         return false;
     }

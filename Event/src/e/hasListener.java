@@ -9,7 +9,7 @@ package E;
  *
  * @author Megha
  */
-interface hasListener 
+public interface hasListener 
 {
     public void addListener (Object t);
 }

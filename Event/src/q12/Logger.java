@@ -51,12 +51,12 @@ public class Logger
         catch (IOException ex) {}
     }
 
-    public static void gifting (String a, String b, int price, int e, int l, int u)
+    public static void gifting (String a, String b, int price, double happ)
     {
         try 
         {
             Timestamp TS = new Timestamp(System.currentTimeMillis());
-            bw.write( TS+" :GIFTING\t "+b+" gifted "+a+" gifts of total price "+price+". Essential: "+e+", Luxury: "+l+", Utility: "+u);
+            bw.write( TS+" :GIFTING\t "+a+" gifted "+b+" gifts of total price "+price+". Couple is happy "+happ);
             bw.newLine();
         } 
         catch (IOException ex) {}
@@ -78,7 +78,7 @@ public class Logger
         try 
         {
             Timestamp TS = new Timestamp(System.currentTimeMillis());
-            bw.write( TS+" :NEWGIRL\t "+g );
+            bw.write( TS+" :NEWGIRL\t "+g.name );
             bw.newLine();
         } 
         catch (IOException ex) {}
@@ -101,6 +101,42 @@ public class Logger
         {
             bw.close();
             fw.close();
+        } 
+        catch (IOException ex) {}
+    }
+
+    static void proposalAccepted(String b, String g) 
+    {
+        try 
+        {
+            Timestamp TS = new Timestamp(System.currentTimeMillis());
+            bw.write( TS+" :PROPOSAL_ACCEPTED\t "+b + " proposed to "+g );
+            System.out.println(g +" accepted proposal of "+b);
+            bw.newLine();
+        } 
+        catch (IOException ex) {}
+    }
+
+    static void proposalRejected(String b, String g) 
+    {
+        try 
+        {
+            Timestamp TS = new Timestamp(System.currentTimeMillis());
+            bw.write( TS+" :PROPOSAL_REJECTED\t "+b + " proposed to "+g );
+            System.out.println(g +" rejected proposal of "+b);
+            bw.newLine();
+        } 
+        catch (IOException ex) {}
+    }
+
+    static void newMonth() 
+    {
+        try 
+        {
+            Timestamp TS = new Timestamp(System.currentTimeMillis());
+            bw.write( TS+" :NEXT_MONTH\t ");
+            bw.newLine();
+            bw.newLine();
         } 
         catch (IOException ex) {}
     }

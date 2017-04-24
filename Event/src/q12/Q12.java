@@ -8,8 +8,8 @@ package q12;
 import E.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
 /**
  *
  * @author Megha
@@ -20,92 +20,20 @@ public class Q12
     public static ArrayList<Girl> girls = new ArrayList<>();
     public static ArrayList<Couple> couples = new ArrayList<>();
     public static ArrayList<Gift> gifts = new ArrayList<>();
+    public static ArrayList<Couple> toremove = new ArrayList<>();
+    public static ArrayList<Couple> toadd = new ArrayList<>();
+
     
     public static void main(String[] args)
     {
         handleInput();
-        System.out.println(gifts.size());
         setupAndGifting();
-        
-        breakUpLessHappyCouples();
-        int k = setk(args);
-        kbestCouples(k);
+        monthlyProceedings();
         Logger.close();
     }
     
     /**
-     * finds k happiest and k most compatible couples
-     * @param k as inputted, or 5 if not inputted. sets to noofcouples if out of range
-     */
-    public static void kbestCouples(int k)
-    {
-        Comparator<Couple> coupleByHapp = Comparator.comparingDouble(Couple::getHapp);
-        Comparator<Couple> coupleByComp = Comparator.comparingInt(Couple::getComp);
-        Collections.sort(couples,coupleByHapp);
-        Couple c;
-        System.out.println("\n"+k+" happiest couples are: \n");
-        int j = couples.size();
-        for (int i=j-1; i>=j-k; i--)
-        {
-            c = couples.get(i);
-            System.out.println(c.gf.name+" and "+c.bf.name+" with happiness "+c.getHapp());
-        }
-        System.out.println();
-        System.out.println(k+" most compatible couples are: \n");
-        Collections.sort(couples,coupleByComp);
-        for (int i=j-1; i>=j-k; i--)
-        {
-            c = couples.get(i);
-            System.out.println(c.gf.name+" and "+c.bf.name+" with compatibility "+c.getComp());
-        }
-    }
-    
-    /**
-     * sets k (k happiest couples) as inputted, or 5 otherwise. or to noofcouples if value exceeds noofcouples
-     * @param args command line input
-     * @return value of k
-     */
-    public static int setk(String args[])
-    {
-        int k;
-        Girl g;
-        int noofcouples = couples.size();
-        try
-        {
-            k = Integer.parseInt(args[0]);
-            try
-            {
-            g = couples.get(k-1).gf;
-            }
-            catch (NullPointerException ex)
-            {
-                try 
-                {
-                    throw new kLargerThanNoOfCouples(k,5);
-                } 
-                catch (kLargerThanNoOfCouples ex1) 
-                {
-                    Exceptions.catcher(ex1);
-                    k = 5;
-                }
-            }
-        }
-        catch (ArrayIndexOutOfBoundsException ex)
-        {
-            try {
-                throw new NoArgumentSupplied(" k ",5);
-            }
-            catch(NoArgumentSupplied exp)
-            {
-                Exceptions.catcher(exp);
-                k = 5;
-            }
-        }
-        return k;
-    }
-    
-    /**
-     * allows all girls to choose bfs
+     * Initially sets up all couples
      */
     public static void setupAndGifting()
     {
@@ -133,11 +61,12 @@ public class Q12
             {
                 System.out.println(g.name+" got committed to "+b.name);
                 Logger.commit(g.name,b.name);
+                singleBoys.remove(b);
                 c = new Couple(g,b);
                 couples.add(c);
                 b.gift(gifts);
                 c.setHapp();
-                System.out.println(g.getHappiness());
+                System.out.println(c.happiness);
                 System.out.println();
             }
             else
@@ -151,6 +80,45 @@ public class Q12
                     Exceptions.catcher(ex);
                 }
             }
+        }
+    }
+
+    /**
+     * prints all couples per month and credits balances of all boys
+     */
+    public static void monthlyProceedings() 
+    {
+        Random r = new Random();
+        Breakup breakup;
+        double j;
+        double happ[] = new double[12];
+        for(int i=0,threshold=500; i<12; i++,threshold+=100)
+        {   
+            Logger.newMonth();
+            System.out.println("\nMONTH "+(i+1));
+            System.out.println("Couples at present:");
+            int k = 0;
+            for (Couple c: couples)
+            {
+                System.out.print(c);
+                System.out.println("   "+c.getHapp());
+                happ[k++] = c.getHapp();
+            }
+            System.out.println();
+            
+            for(Boy b: singleBoys)
+            {
+                j = r.nextInt(4);
+                if (j==0) j=1/2;
+                b.credit(j);
+            }
+            for(Couple c: couples)
+            {
+                j = r.nextInt(4);
+                if (j==0) j=1/2;
+                c.bf.credit(j,c,threshold);
+            }
+            updateCouples();
         }
     }
     
@@ -175,25 +143,20 @@ public class Q12
         }
     }
 
-    private static void breakUpLessHappyCouples() 
+    /**
+     * updates list of couples at end of a month to account for breakups and accepted proposals
+     */
+    public static void updateCouples() 
     {
-        int barrier = 50;
-        ArrayList<Couple> toremove = new ArrayList<>();
-        for (Couple c:couples)
-        {
-            if (c.gf.getHappiness()<barrier)
+        
+            for (Couple c: toremove)
+                couples.remove(c);
+            for (Couple c: toadd)
             {
-                //trigger breakup
-                Breakup breakup = new Breakup(c);
-                toremove.add(c);
+                couples.add(c);
             }
-        }
-        for (Couple c: toremove)
-            couples.remove(c);
-        for (Couple c: toadd)
-            couples.add(c);
-        toadd.clear();
+            toadd.clear();
+            toremove.clear();
     }
-static ArrayList<Couple> toadd = new ArrayList<>();
      
 }

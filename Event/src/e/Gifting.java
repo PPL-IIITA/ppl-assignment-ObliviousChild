@@ -12,11 +12,11 @@ import java.util.EventObject;
  *
  * @author Megha
  */
-public class Breakup extends EventObject implements hasListener
+public class Gifting extends EventObject implements hasListener
 {
     ArrayList<q12.Couple> listeners = new ArrayList<>(); 
     
-    public Breakup(q12.Couple source) 
+    public Gifting(q12.Couple source) 
     {
         super(source);
         System.out.println(toString());
@@ -25,26 +25,24 @@ public class Breakup extends EventObject implements hasListener
         System.out.println();
     }
 
-    public void handleSelf() 
-    {
-        for (q12.Couple c:listeners)
-        {
-            c.handleBreakup();
-        }
-        //raised new girl
-    }
-
     @Override
     public void addListener(Object t) 
     {
-        q12.Couple c = (q12.Couple)t;
-        listeners.add(c);
+        q12.Couple b = (q12.Couple)t;
+        listeners.add(b);
+    }
+
+    public void handleSelf() 
+    {
+        Breakup breakup;
+        for (q12.Couple c: listeners)
+        {
+            c.bf.gift(q12.Q12.gifts);
+        }
     }
     
     public String toString()
     {
-        q12.Couple c = (q12.Couple)source;
-        return "I am a Breakup event on "+c;
+        return "I am a Gifting event on "+(q12.Couple)source;
     }
-
 }

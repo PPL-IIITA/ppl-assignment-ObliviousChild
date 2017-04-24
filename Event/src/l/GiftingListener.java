@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package q12;
+package L;
 
 /**
- * is thrown when a girl cannot find a boyfriend
+ *
  * @author Megha
  */
-public class BfNotFound extends Exception
+public interface GiftingListener 
 {
-    public BfNotFound(String g)
-    {
-        super("404 Bf not found for "+g);
-    }
+    
 }

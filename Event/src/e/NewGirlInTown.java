@@ -8,6 +8,8 @@ package E;
 import java.util.ArrayList;
 import java.util.EventObject;
 import java.util.Random;
+import q12.BfNotFound;
+import q12.Exceptions;
 
 /**
  *
@@ -23,9 +25,13 @@ public class NewGirlInTown extends EventObject
         q12.Logger.newgirl(source);
         listeners = q12.Q12.singleBoys;
         handleSelf();
+        System.out.println();
     }
 
-    private void handleSelf() 
+    /**
+     * activates handlers of single boys in random order
+     */
+    public void handleSelf() 
     {
         Random r = new Random();
         int t;
@@ -38,6 +44,17 @@ public class NewGirlInTown extends EventObject
             {
                 //raise Gifting Event
                 break;
+            }
+        }
+        if (((q12.Girl)source).bf==null)
+        {
+            try
+            {
+                throw new BfNotFound(((q12.Girl)source).name);
+            }
+            catch(BfNotFound ex)
+            {
+                Exceptions.catcher(ex);
             }
         }
     }
