@@ -61,7 +61,7 @@ public class Q3
     /**
      * creates initial data structures for pre generated random girls, boys and gifts
      */
-    private static void handleInput() 
+    public static void handleInput() 
     {
         InputHandler input = new InputHandler();
         try 
@@ -89,7 +89,7 @@ public class Q3
      * finds k happiest and k most compatible couples
      * @param k as inputted, or 5 if not inputted. sets to noofcouples if out of range
      */
-    private static void kbest(int k) 
+    public static void kbest(int k) 
     {
         int i,j=noofcouples;
         Couple c; Girl g;
@@ -132,7 +132,7 @@ public class Q3
     /**
      * allots boyfriends to all girls in order of input
      */
-    private static void allotBfs() 
+    public static void allotBfs() 
     {
         Girl g; Boy b=null; int j=0;
         for (int i=0; i<12; i++)
@@ -163,7 +163,7 @@ public class Q3
     /**
      * performs gifting for all couples
      */
-    private static void performGifting() 
+    public static void performGifting() 
     {
         Comparator<Gift> giftByPrice = Comparator.comparingInt(Gift::getPrice);
         Arrays.sort(gifts,giftByPrice);

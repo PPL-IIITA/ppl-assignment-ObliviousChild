@@ -37,7 +37,7 @@ public class Q5
     /**
      * forms couples by allowing girls and boys to choose alternately. girls are ordered by maintenance cost, and boys by attractiveness
      */
-    static void formCouples()
+    public static void formCouples()
     {
         int i, j=0;
         Girl g = null;
@@ -109,7 +109,7 @@ public class Q5
     /**
      * creates initial data structures for pre generated random girls, boys and gifts
      */
-    private static void handleInput() 
+    public static void handleInput() 
     {
         InputHandler input = new InputHandler();
         try 

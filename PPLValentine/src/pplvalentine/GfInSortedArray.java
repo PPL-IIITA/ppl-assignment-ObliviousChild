@@ -16,7 +16,7 @@ public class GfInSortedArray extends GfFinder
     int len = 0;
     
     @Override
-    void addCouple(NaiveCouple nc) 
+    public void addCouple(NaiveCouple nc) 
     {
         couples[len] = nc;
         len++;
@@ -24,7 +24,7 @@ public class GfInSortedArray extends GfFinder
     }
 
     @Override
-    NaiveCouple getGf(String boy) 
+    public NaiveCouple getGf(String boy) 
     {
         NaiveCouple nc = new NaiveCouple("girl",boy);
         int i = Arrays.binarySearch(couples, 0, len, nc);

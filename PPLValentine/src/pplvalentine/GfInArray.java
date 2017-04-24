@@ -15,14 +15,14 @@ public class GfInArray extends GfFinder
     int len = 0;
     
     @Override
-    void addCouple(NaiveCouple nc) 
+    public void addCouple(NaiveCouple nc) 
     {
         couples[len] = nc;
         len++;
     }
 
     @Override
-    NaiveCouple getGf(String boy) 
+    public NaiveCouple getGf(String boy) 
     {
         for (int i=0; i<len; i++)
             if (couples[i].boy.equals(boy))

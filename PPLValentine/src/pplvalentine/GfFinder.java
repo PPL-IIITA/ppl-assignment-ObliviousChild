@@ -11,6 +11,6 @@ package pplvalentine;
  */
 abstract public class GfFinder 
 {
-    abstract void addCouple(NaiveCouple nc);
-    abstract NaiveCouple getGf(String boy);
+    abstract public void addCouple(NaiveCouple nc);
+    abstract public NaiveCouple getGf(String boy);
 }

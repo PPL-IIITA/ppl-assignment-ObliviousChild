@@ -16,13 +16,13 @@ public class GfInHashtable extends GfFinder
 
     Hashtable<String, NaiveCouple> hashtable = new Hashtable<String, NaiveCouple>();
     @Override
-    void addCouple(NaiveCouple nc) 
+    public void addCouple(NaiveCouple nc) 
     {
         hashtable.put(nc.boy, nc);
     }
 
     @Override
-    NaiveCouple getGf(String boy) 
+    public NaiveCouple getGf(String boy) 
     {
         NaiveCouple nc = hashtable.get(boy);
         return nc;

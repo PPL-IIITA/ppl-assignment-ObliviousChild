@@ -38,7 +38,7 @@ public class Q7
      * sets howToFind as inputted, otherwise randomly
      * @param args 
      */
-    private static void setHowToFind(String args[])
+    public static void setHowToFind(String args[])
     {
         try
         {
@@ -62,7 +62,7 @@ public class Q7
     /**
      * creates initial data structures for pre generated random girls, boys and gifts
      */
-    private static void handleInput() 
+    public static void handleInput() 
     {
         InputHandler input = new InputHandler();
         try 
@@ -111,7 +111,7 @@ public class Q7
     /**
      * finds gf of all boys using finder object
      */
-    private static void findGf()
+    public static void findGf()
     {
         NaiveCouple nc;
         for (int i=0; i<50; i++)
