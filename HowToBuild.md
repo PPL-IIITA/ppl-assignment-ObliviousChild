@@ -1,10 +1,10 @@
 ```
-$ git clone https://github.com/PPL-IIITA/ppl-assignment-ObliviousChild
+$ git clone https://github.com/PPL-IIITA/ppl-assignment-ObliviousChild-Master-2
 ```
 
 For Q1-7
 ```
-$ cd ppl-assignment-ObliviousChild/PPLValentine/src/pplvalentine
+$ cd ppl-assignment-ObliviousChild-Master-2/PPLValentine/src/pplvalentine
 $ javac *.java
 $ cd ..
 ```
@@ -39,7 +39,7 @@ $ java pplvalentine.Q7 [optional: 0 for array, 1 for sortedarray, 2 for hashtabl
 
 For Q8: (makes 4-best structure)
 ```
-$ cd ppl-assignment-ObliviousChild/Q8/src/q8
+$ cd ppl-assignment-ObliviousChild-Master-2/Q8/src/q8
 $ javac *.java
 $ cd ..
 $ java q8.Q8 how-to-gift no-of-couples
@@ -51,16 +51,27 @@ $ java q8.Q8 [howToGift=0] [k=5]
 
 For Q9: (makes 4-best structure)
 ```
-$ cd ppl-assignment-ObliviousChild/Q9/src/q9
+$ cd ppl-assignment-ObliviousChild-Master-2/Q9/src/q9
 $ javac *.java
 $ cd ..
 $ java q9.Q9 [optional: no-of-couples; default=5]
 ```
 
-For Q9: (makes 4-best structure)
+For Q10: (makes 4-best structure)
 ```
-$ cd ppl-assignment-ObliviousChild/Q10/src/q10
+$ cd ppl-assignment-ObliviousChild-Master-2/Q10/src/q10
 $ javac *.java
 $ cd ..
 $ java q10.Q10 [optional: no-of-couples; default=5]
+```
+
+For Q11: Exceptions are already implemented
+
+For Q12:
+```
+$ cd ppl-assignment-ObliviousChild-Master-2/Event/src
+$ javac q12/*.java
+$ javac e/*.java
+$ javac l/*.java
+$ java q12.Q12 
 ```
